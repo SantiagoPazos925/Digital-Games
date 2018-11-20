@@ -1,0 +1,534 @@
+@font-face{
+	font-family: 'elianto';
+	src: url('../eliantoFont/elianto-regular-webfont.eot');
+	src: url('../eliantoFont/elianto-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('../eliantoFont/elianto-regular-webfont.woff') format('woff'),
+	     url('../eliantoFont/elianto-regular-webfont.ttf') format('truetype'),
+	     url('../eliantoFont/elianto-regular-webfont.svg#webfont') format('svg');
+}
+div.row{
+   margin-right: 0px;
+	 margin-left: 0px;
+}
+
+div.container-fluid{
+   padding-right: 0px;
+	 padding-left: 0px;
+}
+#imagenCarrusel{
+	height: 200px;
+}
+.header{
+  padding-top: 15px;
+  background-color:rgb(15, 15, 15);
+  position: fixed;
+  z-index: 100;
+}
+body{
+  background-image: url('../images/background.png');
+
+  background-repeat:repeat;
+}
+div .iconos {
+  color: white;
+  font-size: 30px;
+  text-align: right;
+  padding-right: 30px;
+}
+div .iconos i{
+  padding-left: 15px;
+}
+div .logo {
+  display:block;
+  color: white;
+
+}
+div .logo h2{
+  font-family: 'elianto', Arial, sans-serif;
+  margin-top: 5px;
+  font-size: 25px;
+}
+.cat{
+	display: none;
+}
+#search {
+  text-align: center;
+  padding-bottom: 15px;
+
+}
+.searching{
+padding: 0px;
+}
+.searching input{
+  text-decoration: none;
+  border-style: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 100%;
+  height: 100%;
+
+}
+.buscador{
+	padding:0px;
+}
+.iconSearch {
+
+  text-align: center;
+  color:white;
+  font-size: 20px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  background-color: rgb(79, 142, 219);
+}
+::-webkit-input-placeholder {
+   text-align: center;
+}
+.portrait{
+  margin-top:  15px;
+  margin-bottom:  5px;
+  width: 140px;
+  height: 180px;
+  border-radius: 5px;
+  transition:all .5s ease-in-out;
+  filter: saturate(50%);
+
+}
+.portrait:hover {
+  filter: saturate(100%);
+  border: 3px;
+  border-color: black;
+  border-style:inset;
+}
+.portadasEstrenos{
+	margin-left: 10px;
+	margin-right: 10px;
+
+  text-align: center;
+  margin-bottom: 20px;
+}
+.tituloEstreno{
+  font-family: 'elianto', Arial, sans-serif;
+  padding-top: 10px;
+  text-align: center;
+  background-color:rgb(32, 32, 32);
+  color:white;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  margin-bottom: 20px;
+}
+.tituloEstreno h2{
+  font-size: 25px;
+}
+#destacados{
+  margin-top:  15px;
+  margin-bottom:  5px;
+  width: 140px;
+  height: 180px;
+  border-radius: 5px;
+  transition:all .5s ease-in-out;
+  filter: saturate(50%);
+}
+.contPortadas{
+	padding:0px;
+	text-align: center;
+	height: 290px;
+
+}
+
+.uno{
+  padding: 0px;
+
+}
+.dos{
+  padding: 0px;
+
+}
+
+.separador{
+  width: 100%;
+  height:35px;
+  background-color:rgb(32, 32, 32);
+
+  text-align: center;
+  font-family: 'elianto', Arial, sans-serif;
+
+}
+.separador h2{
+  padding-top: 5px;
+  font-size: 25px;
+
+}
+.separador2{
+  width: 100%;
+  height: 38px;
+  background-color:rgb(32, 32, 32);
+
+}
+
+.precioCarro{
+  text-align: center;
+  color:white;
+  font-size: 20px;
+  margin: 0px;
+  padding: 0px;
+}
+.precio{
+  padding: 0px;
+	padding-left: 10px;
+  margin-top:  10px;
+  text-align: center;
+}
+.precio h4{
+  color:rgb(203, 51, 42);
+  padding-left: 5px;
+  font-size: 20px;
+
+}
+.carro{
+  color: #7CC6FE;
+  margin-top: 10px;
+  padding: 0px;
+	text-align: right;
+	padding-right: 10px;
+}
+.carro i{
+
+  border: 1px solid #7CC6FE;
+  border-radius: 100%;
+  padding-left: 5px;
+  padding-right:5px;
+}
+#nombreJuego{
+	text-align: center;
+  color:rgb(46, 178, 182);
+  margin-bottom: 0px;
+	transition:all .5s ease-in-out;
+	height: 48px;
+
+}
+.juegosIndex:hover{
+
+	  filter: saturate(100%);
+	  border: 3px;
+	  border-color: black;
+	  border-style:inset;
+
+}
+.carouselPrincipal{
+  padding-top: 70px;
+
+}
+.carousel{
+  padding-top: 30px;
+}
+.carousel-indicators li{
+  border-radius: 100%;
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+  background-color: rgba(56, 56, 56, 0.7);
+}
+.contenedorDestacados{
+   background-color: rgba(255, 255, 250, 0.2);
+	 padding: 0px;
+}
+.carousel-control-prev{
+  padding-right: 40px;
+
+}
+
+.carousel-control-next{
+  padding-left: 40px;
+}
+.sr-only span{
+	font-size: 20px;
+}
+.categorias{
+	display: none;
+}
+.footer{
+	padding-top: 20px;
+	background-color:rgb(59, 59, 59);
+	text-align: center;
+	padding-bottom: 30px;
+
+}
+.footer h5{
+	color: rgb(203, 51, 42);
+}
+.footer a{
+	color:rgb(205, 205, 205);
+	font-size: 15px;
+}
+.footerDerechos {
+	color:grey;
+	font-size: 13px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin: 0px;
+}
+.contenedorDerechos{
+	background-color: rgb(43, 43, 43);
+	margin: 0px;
+}
+.nuestrasRedes{
+	color: rgb(68, 68, 68);
+	padding-top: 20px;
+	text-align: center;
+	font-family: 'elianto', Arial, sans-serif;
+	padding-bottom: 20px;
+	background-color: rgb(222, 222, 222);
+}
+#iconFooter{
+	font-size: 30px;
+	padding-right: 0px;
+	padding-left: 0px;
+
+}
+#textRedes{
+	text-align: center;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 10px;
+	font-size: 15px;
+}
+#JuegosCat{
+	margin: 0px;
+	font-size: 13px;
+}
+.contenedorJuegos{
+	padding: 0px;
+	padding-top: 30px;
+}
+.containerGralJuegos{
+background-color: rgb(215, 215, 215);
+}
+.juegosIndex{
+	margin-top:  15px;
+	margin-bottom:  5px;
+	width: 140px;
+	height: 180px;
+
+	transition:all .5s ease-in-out;
+	filter: saturate(50%);
+
+}
+.contPortadasIndex{
+	text-align: center;
+
+}
+.precioIndex{
+	padding: 0px;
+	color: rgb(47, 47, 47);
+
+	text-align: center;
+}
+.precioIndex h4{
+	font-size: 20px;
+}
+.enviarCarrito{
+
+	text-align: center;
+	padding-bottom: 15px;
+}
+.enviarCarrito button{
+	padding: 5px;
+	border-style: outset;
+	border-radius: 5px;
+	background-color: rgba(181, 181, 181, 0.74);
+	transition:all .5s ease-in-out;
+}
+.enviarCarrito button:hover{
+	background-color: rgba(82, 82, 82, 0.74);
+}
+.cat ul{
+	font-size: 20px;
+	padding-top:10px;
+	list-style: none;
+	text-align: center;
+	padding-top: 0px;
+
+}
+.cat h4{
+	background-color: rgb(32, 32, 32);
+	color: white;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius:10px;
+	padding-bottom: 10px;
+}
+.cat li{
+	border: 1px solid rgba(27, 27, 27, 0.78);
+	border-radius: 2px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	margin-bottom:5px;
+	text-align: center;
+	font-size: 15px;
+}
+.categoria{
+	transition:all .5s ease-in-out;
+}
+.categoria:hover{
+	color: white;
+	background-color: rgba(27, 27, 27, 0.78);
+}
+#nombreJuego2{
+	text-align: center;
+	color:rgb(46, 178, 182);
+	margin-bottom: 0px;
+	height: 48px;
+}
+
+@media (min-width: 768px){
+	#imagenCarrusel{
+		height: 300px;
+	}
+	.uno{
+
+		padding-left: 20px;
+	}
+	.dos{
+
+		padding-right: 20px;
+	}
+	#search{
+		width: 500px;
+	}
+	.juegosIndex{
+		width: 226px;
+		height: 332px;
+	}
+	.contPortadasIndex{
+		text-align: left;
+
+	}
+	.precioCarro{
+		text-align: center;
+	}
+	.precioCarro h4{
+		text-align: center;
+	}
+	.contenedorJuegos .contPortadasIndex{
+		text-align: center;
+	}
+	#nombreJuego{
+		text-align: center;
+	}
+}
+@media( min-width: 1024px){
+	#imagenCarrusel{
+		height: 500px;
+	}
+	.iconos{
+		display: none;
+	}
+
+	.categorias {
+		display: inline-block;
+		color:white;
+		padding: 0px;
+	}
+	.categorias ul{
+		list-style:none;
+
+	}
+
+	.header{
+
+		height: 175px;
+	}
+	.categorias ul li{
+		padding-top: 20px;
+		padding-bottom: 20px;
+		font-family: 'elianto', Arial, sans-serif;
+		font-size: 15px;
+		transition:all .5s ease-in-out;
+		border: none;
+
+
+	}
+		.categorias ul li :hover{
+			border: 1px solid red;
+
+		}
+	div .logo h2 {
+	  font-size: 40px;
+		text-align: left;
+		padding-left: 100px;
+
+	}
+	.carouselPrincipal{
+		padding-top: 170px;
+	}
+	#navText {
+		color: white;
+		text-decoration: none;
+		transition:all .2s ease-in-out;
+		padding: 0px;
+	}
+	#navText :hover{
+		color: rgb(218, 40, 40);
+		border-bottom:2px solid rgb(218, 40, 40);
+	}
+	.carrito{
+		color: white;
+		font-size: 30px;
+		text-align: center;
+		padding-top: 7px;
+		padding-left: 0px;
+		padding-right: 0px;
+		
+		transition:all .2s ease-in-out;
+
+	}
+	.carrito:hover{
+		color:rgb(218, 40, 40);
+	}
+	.navigation{
+		margin: 0px;
+		padding: 0px;
+	}
+	.navBar{
+		padding-bottom: 10px;
+	}
+	.juegosIndex{
+		width: 207px;
+		height: 262px;
+	}
+	.contPortadasIndex{
+		text-align: left;
+
+	}
+	.cat{
+		display: inline-block;
+	}
+
+	#JuegosCat{
+		text-align: left;
+	}
+	.precioCarro h4{
+		text-align: left;
+	}
+	.juegosIndex{
+		width: 100%;
+		height:340px;
+	}
+	#nombreJuego{
+		text-align: left;
+	}
+	.precioCarro h4{
+		padding-left: 30px;
+	}
+	.carro{
+		padding-right: 50px;
+	}
+
+}
+@media( min-width: 1440px){
+	.juegosIndex{
+		width: 100%;
+		height:480px;
+	}
+}
