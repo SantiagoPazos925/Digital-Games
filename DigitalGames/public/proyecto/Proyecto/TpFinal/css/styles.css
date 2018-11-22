@@ -173,9 +173,12 @@ padding: 0px;
   margin: 0px;
   padding: 0px;
 }
+.tituloDestacado{
+
+}
 .precio{
   padding: 0px;
-	padding-left: 10px;
+
   margin-top:  10px;
   text-align: center;
 }
@@ -378,6 +381,10 @@ background-color: rgb(215, 215, 215);
 	text-align: center;
 	color:rgb(46, 178, 182);
 	margin-bottom: 0px;
+
+
+
+
 	height: 48px;
 }
 
@@ -479,7 +486,7 @@ background-color: rgb(215, 215, 215);
 		padding-top: 7px;
 		padding-left: 0px;
 		padding-right: 0px;
-		
+
 		transition:all .2s ease-in-out;
 
 	}
@@ -518,12 +525,8 @@ background-color: rgb(215, 215, 215);
 	#nombreJuego{
 		text-align: left;
 	}
-	.precioCarro h4{
-		padding-left: 30px;
-	}
-	.carro{
-		padding-right: 50px;
-	}
+
+
 
 }
 @media( min-width: 1440px){

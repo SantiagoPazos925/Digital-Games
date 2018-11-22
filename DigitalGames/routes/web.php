@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/faq', function(){
+  return view('faq');
+});
+Route::get('/login', function(){
+  return view('login');
+});
+Route::get('/registro', function(){
+  return view('registro');
 });

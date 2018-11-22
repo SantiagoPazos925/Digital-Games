@@ -17,25 +17,8 @@
       <h6><a href="#">Política de privacidad</a> </h6>
       <h6><a href="#">Aviso Legal</a> </h6>
       <h6><a href="#">Condiciones generales de uso</a> </h6>
-
     </div>
-
-
-
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 <div class="col-12 nuestrasRedes">
     <h5><span style="color:rgb(172, 37, 37)">Seguinos</span> en nuestras redes sociales!</h5>
@@ -51,8 +34,6 @@
           <i id="iconFooter" class="ion-social-twitter col-2" style="color:rgb(24, 185, 200)"></i><h4  id="textRedes"class="col-10" style="color:rgb(24, 185, 200)">Seguinos en Twitter</h4>
       </div>
   </div>
-
-
 </div>
 <div class="col-12 contenedorDerechos">
   <p class="footerDerechos" >© DigitalGames 2018 | Todos los derechos reservados.</p>
