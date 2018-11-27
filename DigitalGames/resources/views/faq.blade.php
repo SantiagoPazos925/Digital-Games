@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/pisobootstrap.css">
     <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/styles.css">
     <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/eliantoFont/stylesheet.css" type="text/css" charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <meta charset="utf-8">
     <title></title>
