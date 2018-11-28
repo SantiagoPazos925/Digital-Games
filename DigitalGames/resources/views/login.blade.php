@@ -1,9 +1,9 @@
 @extends ('default')
 
 @section('section')
-<?php /* require_once("classes/autoload.php"); */?>
+<?php /* require_once("classes/autoload.php"); */ ?>
 
-  <?php/*
+  <?php /*
   include("header.php");
   require_once("classes/autoload.php");
   $errorDatos = '';
@@ -22,16 +22,12 @@ if($_POST){
   </div>
 
   <div class="contenedorForm col-10 offset-1">
+      <form class="login" action="login" method="post" enctype="multipart/form-data" name="myForm" onsubmit="return validateLogin()" >
 
-    <div class="contenedor ">
-      <form class="login" action="login.php" method="post" enctype="multipart/form-data" >
-        <span class="error"><?php /* echo($errorDatos); */ ?></span> <br>
-        <label for="">Usuario: <span class="error"><?php /* $errores['usuario']??''*/ ?></span> <br><input type="text" name="nick" value=""></label>
+        <label for="">Usuario: <span class="error"></span> <br><input type="text" name="nick" value=""  ></label>
         <br><br>
-        <label for="">Contraseña: <span class="error" ><?php // $errores['password']??'' ?></span><br><input type="password" name="password" value=""></label>
+        <label for="">Contraseña: <span class="error2" ><?php // $errores['password']??'' ?></span><br><input type="password" name="password" value=""  ></label>
         <br><br><input type="submit" name="" value="Ingresar" class="btn btn-primary">
       </form>
-
-    </div>
-ADASDASD
+  </div>
 @endsection

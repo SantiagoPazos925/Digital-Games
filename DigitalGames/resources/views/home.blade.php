@@ -1,7 +1,7 @@
 @extends('default')
 
 @section('section')
-<div class="container.fluid carouselPrincipal col-8 offset-2">
+<div class="container.fluid carouselPrincipal col-12  col-lg-8-offset-2">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -30,53 +30,67 @@
   </div>
 </div>
 <?php
-  $juegos = [
-      ["title"=>'Call Of Duty Black Ops 4',"imagen"=>'CoDBO3.jpg'],
-      ["title"=>'Fallout 76',"imagen"=>'fallout76.jpg'],
-      ["title"=>'Metro Exodus',"imagen"=>'MetroExodus.jpg'],
-      ["title"=>'Pro Evolution Soccer 19',"imagen"=>'pes19.jpg'],
-      ["title"=>'Call Of Duty Black Ops 4',"imagen"=>'CoDBO3.jpg'],
-      ["title"=>'Fallout 76',"imagen"=>'fallout76.jpg'],
+  $estrenos = [
+      ["title"=>'Call Of Duty Black Ops 4',"imagen"=>'CoDBO3.jpg', "plataforma"=>'Xbox One'],
+      ["title"=>'Fallout 76',"imagen"=>'fallout76.jpg', "plataforma"=>'Xbox One'],
+      ["title"=>'Metro Exodus',"imagen"=>'MetroExodus.jpg', "plataforma"=>'Xbox One'],
+      ["title"=>'Pro Evolution Soccer 19',"imagen"=>'pes19.jpg',"plataforma"=>'PlayStation 4'],
+      ["title"=>'Call Of Duty Black Ops 4',"imagen"=>'CoDBO3.jpg', "plataforma"=>'Xbox One'],
+      ["title"=>'Dakar 18',"imagen"=>'dakar.jpg',"plataforma"=>'PlayStation 4'],
 
     ];
 
-  $juegos2 = [
+  $destacados = [
 
       ["title"=>'Red Dead Redemption',"imagen"=>'redDeadRedemptionIcon.jpeg'],
-      ["title"=>'Dakar 18',"imagen"=>'dakar.jpg'],
+      ["title"=>'Dakar 18',"imagen"=>'dakar.jpg',"plataforma"=>'PlayStation 4'],
       ["title"=>'Injustice 2',"imagen"=>'Injustice2.jpg'],
     ];
+    $juegos = [
+        ["title"=>'Call Of Duty Black Ops 4',"imagen"=>'CoDBO3.jpg', "plataforma"=>'Xbox One'],
+        ["title"=>'Fallout 76',"imagen"=>'fallout76.jpg', "plataforma"=>'Xbox One'],
+        ["title"=>'Metro Exodus',"imagen"=>'MetroExodus.jpg', "plataforma"=>'Xbox One'],
+        ["title"=>'Pro Evolution Soccer 19',"imagen"=>'pes19.jpg', "plataforma"=>'PlayStation 4'],
+        ["title"=>'Battlefield 1',"imagen"=>'Battlefield 1 revolution.jpg', "plataforma"=>'PlayStation 4'],
+        ["title"=>'marvel vs Capcom',"imagen"=>'marvelvscapcom.jpg', "plataforma"=>'PlayStation 4'],
+        ["title"=>'Red Dead Redemption',"imagen"=>'redDeadRedemptionIcon.jpeg', "plataforma"=>'PlayStation 4'],
+        ["title"=>'Naruto',"imagen"=>'naruto.jpeg',"plataforma"=>'Xbox One'],
+        ["title"=>'Injustice 2',"imagen"=>'Injustice2.jpg', "plataforma"=>'PlayStation 4'],
+        ["title"=>'FarCry 5',"imagen"=>'FarCry5.jpg', "plataforma"=>'PlayStation 4'],
+        ["title"=>'Soul Calibur 6',"imagen"=>'Soulcalibur6.jpg', "plataforma"=>'PlayStation 4']
+      ];
+
+
  ?>
 <div class="container-fluid estrenos">
-  <div class="row">
-    <div class="col-8 tituloEstreno">
+
+    <div class="tituloEstreno">
       <h2>Ultimos <span style="color:rgb(203, 51, 42)">Estrenos</span</h2>
-    </div>
-      <div class="col-4 tituloEstreno ">
+
+      <!-- <div class="col-4 tituloEstreno ">
           <h2 style="color:white">Des<span style="color:rgb(203, 51, 42)">tacados</span</h2>
-      </div>
+      </div> -->
   </div>
-    <div class="row portadasEstrenos">
-        <div class="row col-12 col-md-6 col-lg-8 uno">
-        <?php foreach ($juegos as $juego)
-        {
-        echo  '<div class="contenedorImg col-6 col-lg-2  contPortadas">';
-        echo     ' <img class=portrait src="proyecto/Proyecto/TpFinal/images/'.$juego["imagen"].'" alt="">';
-        echo      '<p id=nombreJuego2>'.$juego["title"].'</p>';
-        echo      '<div class="row col-12 precioCarro">';
-        echo        '<div class="col-6 precio">';
-        echo          '<h4>$2560,<span style="font-size:15px;">90</span></h4>';
-        echo        '</div>';
-        echo        '<div class="col-6  carro">';
-        echo          '<i class="ion-android-cart"></i>';
-        echo       ' </div>';
-        echo      '</div>';
-        echo  '</div>';
-        }
-        ?>
+    <div class="portadasEstrenos">
+
+        <div class="col-12 col-md-12 col-lg-12 contenedorEstrenos">
+          <div class="row">
+            <?php foreach ($estrenos as $juego): ?>
+              <div class="contenedorImg col-6 col-md-4 col-lg-2  contPortadas">
+                  <img class=portrait src='proyecto/Proyecto/TpFinal/images/<?php echo $juego["imagen"] ?>' alt="">
+                  <p id=nombreJuego2><?php echo $juego["title"] ?></p>
+                  <p id="JuegosCat">Juegos <?php echo $juego["plataforma"] ?></p>
+                  <h4>$2560,<span style="font-size:15px;">90</span></h4>
+
+
+
+              </div>
+            <?php endforeach; ?>
+          </div>
+
       </div>
-      <div class="row col-12 col-md-6 col-lg-4 contenedorDestacados">
-      <?php foreach ($juegos2 as $juego)
+      <!-- <div class="row col-12 col-md-6 col-lg-4 contenedorDestacados"> -->
+      <?php /* foreach ($destacados as $juego)
       {
       echo  '<div class="contenedorImg col-6 col-lg-4  contPortadas">';
       echo     ' <img class=portrait src="proyecto/Proyecto/TpFinal/images/'.$juego["imagen"].'" alt="">';
@@ -91,17 +105,13 @@
       echo      '</div>';
       echo  '</div>';
       }
-      ?>
-    </div>
+    */  ?>
+    <!-- </div> -->
     </div>
     <div class="container-fluid">
 
 
-      <div class="row ">
-        <div class="col-12 separador2">
 
-        </div>
-      </div>
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 separador">
@@ -111,103 +121,53 @@
 
       </div>
       <div class="row containerGralJuegos">
-        <div class="col-3 cat">
-            <ul> <h4>Categorias</h4>
+
+        <div class="col-2 cat">
+            <ul> <h4>Plataformas</h4>
 
               <li class="categoria">PC</li>
               <li class="categoria">PlayStation3</li>
               <li class="categoria">PlayStation 4</li>
               <li class="categoria">Xbox One</li>
             </ul>
+            <div class="col-12 cat">
+                <ul> <h4>Categorias</h4>
+                  <li class="categoria">Accíon</li>
+                  <li class="categoria">Anime</li>
+                  <li class="categoria">Arcade</li>
+                  <li class="categoria">Aventura</li>
+                  <li class="categoria">Baile</li>
+                  <li class="categoria">Carreras</li>
+                  <li class="categoria">Deportes</li>
+                  <li class="categoria">Estrategia</li>
+                  <li class="categoria">Horror</li>
+                  <li class="categoria">Infantil</li>
+                  <li class="categoria">Rol</li>
+                  <li class="categoria">Lucha</li>
+                  <li class="categoria">Shooter</li>
+                  <li class="categoria">Terror</li>
+                </ul>
+            </div>
         </div>
-        <div class="row col-12 col-lg-9 contenedorJuegos">
-          <div class="contenedorImg col-6 col-md-4 col-lg-4 contPortadasIndex">
-              <img class="juegosIndex" src="proyecto/Proyecto/TpFinal/images/MetroExodus.jpg" alt="">
-              <p id=nombreJuego>Metro Exodus</p>
-              <p id="JuegosCat">Juegos Xbox One</p>
-              <div class="row precioCarro">
-                  <div class="col-12 col-lg-6 precioIndex">
-                    <h4>$2560,<span style="font-size:15px;">90</span></h4>
+
+        <div class="col-12 col-lg-10 contenedorJuegos">
+          <div class="row">
+            <?php foreach ($juegos as $juego): ?>
+              <div class=" contenedorImg col-6 col-md-4 col-lg-2 contPortadasIndex">
+                  <img class=portrait src='proyecto/Proyecto/TpFinal/images/<?php echo $juego["imagen"] ?>' alt="">
+                  <p id=nombreJuego><?php echo $juego["title"] ?></p>
+                  <p id="JuegosCat">Juegos <?php echo $juego["plataforma"] ?></p>
+                  <div class="row precioCarro">
+                      <div class="col-12 precioIndex">
+                        <h4>$2560,<span style="font-size:15px;">90</span></h4>
                   </div>
-
-              </div>
-              <div class="col-12 enviarCarrito">
-                  <button class="" type="button" name="EnviarCarrito">Añadir al carrito</button>
-              </div>
-          </div>
-          <div class="contenedorImg col-6 col-md-4 col-lg-4 contPortadasIndex">
-              <img class=juegosIndex src="proyecto/Proyecto/TpFinal/images/Soulcalibur6.jpg" alt="">
-              <p id=nombreJuego>Soulcalibur 6</p>
-              <p id="JuegosCat">Juegos PS4</p>
-              <div class="row precioCarro">
-                  <div class="col-12 col-lg-6 precioIndex">
-                    <h4>$2560,<span style="font-size:15px;">90</span></h4>
+                  <div class="col-12 enviarCarrito">
+                      <button class="" type="button" name="EnviarCarrito">Añadir al carrito</button>
                   </div>
-
+                </div>
               </div>
-              <div class="col-12 enviarCarrito">
-                  <button class="" type="button" name="EnviarCarrito">Añadir al carrito</button>
-              </div>
+            <?php endforeach; ?>
           </div>
-          <div class="contenedorImg col-6 col-md-4 col-lg-4 contPortadasIndex">
-              <img class=juegosIndex src="proyecto/Proyecto/TpFinal/images/spiderManIcon.jpg" alt="">
-              <p id=nombreJuego>Spider Man</p>
-              <p id="JuegosCat">Juegos PS4</p>
-              <div class="row precioCarro">
-                  <div class="col-12 col-lg-6 precioIndex">
-                    <h4>$2560,<span style="font-size:15px;">90</span></h4>
-                  </div>
-
-              </div>
-              <div class="col-12 enviarCarrito">
-                  <button class="" type="button" name="EnviarCarrito">Añadir al carrito</button>
-              </div>
-
-          </div>
-          <div class="contenedorImg col-6 col-md-4 col-lg-4 contPortadasIndex">
-              <img class="juegosIndex" src="proyecto/Proyecto/TpFinal/images/fallout76.jpg" alt="">
-              <p id=nombreJuego>Fallout 76</p>
-              <p id="JuegosCat">Juegos Xbox One</p>
-              <div class="row precioCarro">
-                  <div class="col-12 col-lg-6 precioIndex">
-                    <h4>$2560,<span style="font-size:15px;">90</span></h4>
-                  </div>
-
-              </div>
-              <div class="col-12 enviarCarrito">
-                  <button class="" type="button" name="EnviarCarrito">Añadir al carrito</button>
-              </div>
-          </div>
-          <div class="contenedorImg col-6 col-md-4 col-lg-4 contPortadasIndex">
-              <img class=juegosIndex src="proyecto/Proyecto/TpFinal/images/pes19.jpg" alt="">
-              <p id=nombreJuego>Pro Evolution Soccer 19</p>
-              <p id="JuegosCat">Juegos PS4</p>
-              <div class="row precioCarro">
-                  <div class="col-12 col-lg-6 precioIndex">
-                    <h4>$2560,<span style="font-size:15px;">90</span></h4>
-                  </div>
-
-              </div>
-              <div class="col-12 enviarCarrito">
-                  <button class="" type="button" name="EnviarCarrito">Añadir al carrito</button>
-              </div>
-          </div>
-          <div class="contenedorImg col-6 col-md-4 col-lg-4 contPortadasIndex">
-              <img class=juegosIndex src="proyecto/Proyecto/TpFinal/images/redDeadRedemptionIcon.jpeg" alt="">
-              <p id=nombreJuego>Red Dead Redemption</p>
-              <p id="JuegosCat">Juegos PS4</p>
-              <div class="row precioCarro">
-                  <div class="col-12 col-lg-6 precioIndex">
-                    <h4>$2560,<span style="font-size:15px;">90</span></h4>
-                  </div>
-
-              </div>
-              <div class="col-12 enviarCarrito">
-                  <button class="" type="button" name="EnviarCarrito">Añadir al carrito</button>
-              </div>
-
-          </div>
-
         </div>
 
       </div>

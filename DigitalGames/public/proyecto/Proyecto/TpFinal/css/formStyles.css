@@ -21,7 +21,7 @@ div .iconos {
   color: white;
   font-size: 30px;
   text-align: right;
-  padding-right: 30px;
+
 }
 div .iconos i{
   padding-left: 15px;
@@ -32,6 +32,10 @@ div .logo {
 
 }
 span.error{
+  color: red;
+  font-style: italic;
+}
+span.error2{
   color: red;
   font-style: italic;
 }
@@ -111,11 +115,10 @@ form label{
   border-style:inset;
 }
 .portadasEstrenos{
+	background-color: rgba(210, 210, 210, 0.73);
 
-  margin-left: 5px;
-  margin-right: 5px;
   text-align: center;
-  margin-bottom: 20px;
+
 }
 .tituloEstreno{
   font-family: 'elianto', Arial, sans-serif;
@@ -123,9 +126,8 @@ form label{
   text-align: center;
   background-color:rgb(32, 32, 32);
   color:white;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  margin-bottom: 20px;
+
+
 }
 .tituloEstreno h2{
   font-size: 25px;
@@ -155,8 +157,7 @@ form label{
   width: 100%;
   height: 38px;
   background-color:rgb(32, 32, 32);
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
+
   text-align: center;
   font-family: 'elianto', Arial, sans-serif;
 
@@ -169,8 +170,7 @@ form label{
   width: 100%;
   height: 38px;
   background-color:rgb(32, 32, 32);
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
+
 }
 
 .precioCarro{
@@ -205,7 +205,7 @@ form label{
   padding-right:5px;
 }
 #nombreJuego{
-  color:white;
+
   margin-bottom: 0px;
 }
 .carouselPrincipal{
@@ -241,6 +241,12 @@ form label{
 	padding-top: 150px;
 	color:white;
 	padding-bottom: 20px;
+}
+@media (min-width: 768px){
+	.carouselPrincipal{
+	  padding-top: 150px;
+
+	}
 }
 @media(min-width: 1024px){
 	.registrate{

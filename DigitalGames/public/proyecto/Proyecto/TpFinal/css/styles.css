@@ -10,7 +10,24 @@ div.row{
    margin-right: 0px;
 	 margin-left: 0px;
 }
+.menuBoton{
+	color:white;
+}
+.menuBoton:hover{
+	color:rgb(213, 37, 37);
+}
+.menuMovil{
+	background-color: black;
 
+
+}
+.menuMovil a{
+	color:white;
+}
+.menuMovil a:hover{
+	color:red;
+	background-color: grey;
+}
 div.container-fluid{
    padding-right: 0px;
 	 padding-left: 0px;
@@ -33,7 +50,7 @@ div .iconos {
   color: white;
   font-size: 30px;
   text-align: right;
-  padding-right: 30px;
+
 }
 div .iconos i{
   padding-left: 15px;
@@ -41,6 +58,7 @@ div .iconos i{
 div .logo {
   display:block;
   color: white;
+
 
 }
 div .logo h2{
@@ -101,8 +119,7 @@ padding: 0px;
   border-style:inset;
 }
 .portadasEstrenos{
-	margin-left: 10px;
-	margin-right: 10px;
+
 
   text-align: center;
   margin-bottom: 20px;
@@ -113,16 +130,15 @@ padding: 0px;
   text-align: center;
   background-color:rgb(32, 32, 32);
   color:white;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  margin-bottom: 20px;
+
+
 }
 .tituloEstreno h2{
   font-size: 25px;
 }
 #destacados{
-  margin-top:  15px;
-  margin-bottom:  5px;
+
+
   width: 140px;
   height: 180px;
   border-radius: 5px;
@@ -135,7 +151,9 @@ padding: 0px;
 	height: 290px;
 
 }
-
+.contenedorEstrenos{
+	padding-bottom: 20px;
+}
 .uno{
   padding: 0px;
 
@@ -219,7 +237,7 @@ padding: 0px;
 
 }
 .carouselPrincipal{
-  padding-top: 70px;
+  padding-top: 80px;
 
 }
 .carousel{
@@ -331,7 +349,7 @@ background-color: rgb(215, 215, 215);
 	font-size: 20px;
 }
 .enviarCarrito{
-
+	font-size: 15px;
 	text-align: center;
 	padding-bottom: 15px;
 }
@@ -351,7 +369,7 @@ background-color: rgb(215, 215, 215);
 	list-style: none;
 	text-align: center;
 	padding-top: 0px;
-
+	padding-left: 0px;
 }
 .cat h4{
 	background-color: rgb(32, 32, 32);
@@ -379,7 +397,7 @@ background-color: rgb(215, 215, 215);
 }
 #nombreJuego2{
 	text-align: center;
-	color:rgb(46, 178, 182);
+	color:rgb(35, 100, 168);
 	margin-bottom: 0px;
 
 
@@ -422,6 +440,10 @@ background-color: rgb(215, 215, 215);
 	}
 	#nombreJuego{
 		text-align: center;
+	}
+	.carouselPrincipal{
+	  padding-top: 120px;
+
 	}
 }
 @media( min-width: 1024px){
@@ -466,7 +488,7 @@ background-color: rgb(215, 215, 215);
 		padding-left: 100px;
 
 	}
-	.carouselPrincipal{
+	.{
 		padding-top: 170px;
 	}
 	#navText {
@@ -513,17 +535,17 @@ background-color: rgb(215, 215, 215);
 	}
 
 	#JuegosCat{
-		text-align: left;
+		text-align: center;
 	}
 	.precioCarro h4{
-		text-align: left;
+		text-align: center;
 	}
 	.juegosIndex{
 		width: 100%;
 		height:340px;
 	}
 	#nombreJuego{
-		text-align: left;
+		text-align: center;
 	}
 
 
@@ -532,6 +554,11 @@ background-color: rgb(215, 215, 215);
 @media( min-width: 1440px){
 	.juegosIndex{
 		width: 100%;
-		height:480px;
+
+	}
+	div .logo h2 {
+		font-size: 50px;
+
+
 	}
 }
