@@ -24,18 +24,3 @@ Route::get('/login', function(){
 Route::get('/registro', function(){
   return view('registro');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/buscador',function(){
-  return view('buscador');
-});
-
-Route::get('/buscador/{nombre}','BuscadorController@buscar');
-Route::get('/agregarjuego',function(){
-  return view('insertForm');
-});
-
-Route::post('/insert','InsertController@insert');
