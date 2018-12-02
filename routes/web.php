@@ -38,6 +38,10 @@ Route::get('/agregarjuego',function(){
   return view('insertForm');
 });
 
+<<<<<<< HEAD:routes/web.php
 Route::post('/insert','AdminController@insert');
 Route::post('/delete','AdminController@delete');
 Route::post('/update','AdminController@update');
+=======
+Route::post('/insert','InsertController@insert');
+>>>>>>> 007245159135fa5c5ef86054edd387be0385cfed:DigitalGames/routes/web.php
