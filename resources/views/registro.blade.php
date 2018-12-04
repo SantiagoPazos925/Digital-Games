@@ -40,12 +40,26 @@ $paises=[
           <input id="email"class="input" type="email" name="email" value="" placeholder="Email" onblur="revisar(this) ; revisaEmail(this)" onkeyup="revisar(this) ; revisaEmail(this)"><br>
           <div class="userData">
               <div class="inputUserData">
-                <?php  $userCountry; if (isset($_POST["pais"])) { $userCountry = $_POST["pais"];} ?>
-                <select class="input"  name="pais">
-                  <?php foreach ($paises as $pais) {
-                  echo ('<option '.( ($userCountry == $pais )? 'selected':'').' value="'.$pais.'" >'.$pais.'</option>');
-                  }?>
-                </select>
+              <select class="input" name="pais" id="paises">
+              </select>
+              <script type="text/javascript">
+                  fetch('https://restcountries.eu/rest/v2/all')
+                  .then(function(data){
+                    return data.json();
+                  })
+                  .then(function(r){
+                    for (pais of r) {
+                        var cod = '<option value="' + pais.name + '">' + pais.name + '</option>';
+                        console.log(cod);
+                        var paises = document.getElementById("paises");
+                        paises.innerHTML += cod;
+                      }
+                  })
+                  .catch(function(r){
+                    console.log('hubo un error');
+                  })
+
+              </script>
                 <span style="color:red;">*</span>
               </div>
           </div>
