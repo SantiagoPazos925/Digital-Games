@@ -61,6 +61,53 @@ div .logo {
 
 
 }
+.input{
+	color:#3c3c3c;
+	font-size:18px;
+	line-height: 22px;
+	background-color: #fbfbfb;
+	padding: 13px 45px 13px 45px;
+	margin-bottom: 10px;
+	border-radius: 9px;
+	text-align: left;
+}
+input.error{
+	color:#3c3c3c;
+	font-size:18px;
+	line-height: 22px;
+	background-color: #F78181;
+	padding: 13px 45px 13px 45px;
+	margin-bottom: 10px;
+	border-radius: 9px;
+	text-align: left;
+	border: 0px;
+}
+input.error::-webkit-input-placeholder{
+	color:white;
+}
+.enviar{
+	padding: 13px 45px 13px 45px;
+	border: #fff solid 4px;
+	cursor:pointer;
+	border-radius: 9px;
+	background-color: #0e81bd;
+	color:white;
+	font-size: 28px;
+	font-weight: 670px;
+
+	transition: all 0.3s;
+}
+.enviar:hover{
+	background-color: #33de80;
+	transition: .7s ease;
+}
+
+.input:focus{
+	background-color:#fff;
+	border: 3px solid #3498db;
+	color:#1b8f31;
+	padding: 13px 45px 13px 45px;
+}
 div .logo h2{
   font-family: 'elianto', Arial, sans-serif;
   margin-top: 5px;

@@ -31,27 +31,17 @@ $paises=[
       <h2>Se parte de la comunidad <span style="color:rgb(203, 51, 42);">Digital</span>Games!</h2>
     </div>
 
-    <div class="contenedorForm col-10 offset-1">
+    <div class=" col-10 offset-1">
 
-      <div class="contenedor-fluid">
-        <form class="login" action="registro" method="post" enctype="multipart/form-data" name="registro" onsubmit="return validateRegistro()">
-
-          <span class="error"><?php  /* $errores['Datos']??'' */ ?></span> <br>
-          <label for="">Nombre Completo: <span class="errorNC" ><?php  /* $errores['Nombre']??'' */ ?></span> <br><input type="text" name="nombreCompleto" value="<?php /* /echo (($_POST['nombreCompleto'])??'') */ ?>"> </label>
-          <br><br>
-          <label for="">Usuario: <span class="errorNick" ><?php  /* $errores['Usuario']??'' */ ?></span> <br><input type="text" name="nick" value="<?php /*  echo (($_POST['nick'])??'') */ ?>"></label>
-          <br><br>
-          <label for="">Email: <span class="errorEmail" ><?php  /* $errores['Email']??'' */ ?></span><br><input type="email" name="email" value="<?php  /* echo (($_POST['email'])??'') */ ?>"></label>
-
-          <br><br>
-          <span class="error" ><?php //$errores['Pais']??''?></span><br>
+      <div class="contenedor-fluid" id="contenedorForm">
+        <form class="login" action="registro" method="post" enctype="multipart/form-data" name="registro" onsubmit="return validar()">
+          <input id="nombreCompleto" class="input"  type="text" name="nombreCompleto" value="" placeholder="Nombre" onblur="revisar(this); revisarLongitud(this, 5); revisarSoloLetras(this)" onkeyup="revisar(this); revisarLongitud(this, 5); revisarSoloLetras(this)"><br>
+          <input  id="nick"class="input" type="text" name="nick" value="" placeholder="Nick" onblur="revisar(this)" onkeyup="revisar(this)"><br>
+          <input id="email"class="input" type="email" name="email" value="" placeholder="Email" onblur="revisar(this) ; revisaEmail(this)" onkeyup="revisar(this) ; revisaEmail(this)"><br>
           <div class="userData">
-              <div class="labelUserData">
-                <label for="userCountry"> País de nacimiento:</label>
-              </div>
               <div class="inputUserData">
                 <?php  $userCountry; if (isset($_POST["pais"])) { $userCountry = $_POST["pais"];} ?>
-                <select  name="pais">
+                <select class="input"  name="pais">
                   <?php foreach ($paises as $pais) {
                   echo ('<option '.( ($userCountry == $pais )? 'selected':'').' value="'.$pais.'" >'.$pais.'</option>');
                   }?>
@@ -59,22 +49,20 @@ $paises=[
                 <span style="color:red;">*</span>
               </div>
           </div>
+          <label for="">Avatar<br><br><input  type="file" name="avatar" value=""></label>
           <br><br>
-          <label for="">Avatar: <span class="error" ><?php //$errores['Avatar']??''?></span><input type="file" name="avatar" value=""></label>
-          <br><br>
-          <label for="">Contraseña: <span class="error" ><?php //$errores['Password']??''?></span><br><input type="password" name="password" value=""></label>
-          <br><br>
-          <label for="">Repetir contraseña: <span class="error"><?php //$errores['Password1']??''?></span><br><input type="password" name="password1" value=""></label>
-          <br><br>
+          <input  id="password" class="input" type="password" name="password" value=""placeholder="Contraseña"onblur="revisar(this)" onkeyup="revisar(this)"></label><br>
+          <input  id="password2" class="input" type="password" name="password1" value=""placeholder="Repita su contraseña"onblur="revisar(this)" onkeyup="revisar(this)"></label><br>
 
-          <select class="" name="plataforma" value = "<?php //if(isset($_POST['plataforma'])){echo ($_POST['plataforma']);} ?>"><span class="error" ></span>
+
+          <select id="plataforma" class="input" name="plataforma" value = "">
 
             <option value="">Seleccione plataforma</option>
             <option value="ps4">PlayStation 4</option>
             <option value="xbox">Xbox One</option>
             <option value="pc">PC</option>
           </select>
-          <br><br><input type="submit" name="" value="Registarme" class="btn btn-primary">
+          <br><br><input type="submit" name="" value="Registarme" class="enviar">
         </form>
 
       </div>
