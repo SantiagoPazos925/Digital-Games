@@ -42,16 +42,18 @@ $paises=[
               <div class="inputUserData">
               <select class="input" name="pais" id="paises">
               </select>
+              <div class="" id="provincias">
+
+              </div>
               <script type="text/javascript">
                   fetch('https://restcountries.eu/rest/v2/all')
                   .then(function(data){
                     return data.json();
                   })
                   .then(function(r){
+                    var paises = document.getElementById("paises");
                     for (pais of r) {
                         var cod = '<option value="' + pais.name + '">' + pais.name + '</option>';
-                        console.log(cod);
-                        var paises = document.getElementById("paises");
                         paises.innerHTML += cod;
                       }
                   })
@@ -59,7 +61,56 @@ $paises=[
                     console.log('hubo un error');
                   })
 
+                  var paises = document.getElementById("paises");
+                  paises.onchange = function(ev){
+                    if(this.value == 'Argentina'){
+                      fetch('https://dev.digitalhouse.com/api/getProvincias')
+                      .then(function(data){
+                        return data.json();
+                      })
+                      .then(function(r){
+                        var provincias = document.getElementById("provincias");
+                        var select = document.createElement('select');
+                        for (provincia of r) {
+                            var cod = '<option value="' + provincia.state + '">' + provincia.state + '</option>';
+                            select.innerHTML += cod;
+                          }
+                          select.className = "input";
+                        provincias.append(select);
+                      })
+                      .catch(function(r){
+                        console.log('hubo un error');
+                      })
+                    }
+                    else
+                    {
+                      var provincias = document.getElementById("provincias");
+                      provincias.innerHTML = '';
+                    }
+
+
+                    }
+
+                  // if(1){
+                  //
+                  //   fetch('https://dev.digitalhouse.com/api/getProvincias')
+                  //   .then(function(data){
+                  //     return data.json();
+                  //   })
+                  //   .then(function(r){
+                  //     var provincias = document.createElement('select');
+                  //     for (provincia of r) {
+                  //         var cod = '<option value="' + provincia.name + '">' + provincia.name + '</option>';
+                  //
+                  //         provincias.innerHTML += cod;
+                  //       }
+                  //   })
+                  //   .catch(function(r){
+                  //     console.log('hubo un error');
+                  //   })
+                  // }
               </script>
+
                 <span style="color:red;">*</span>
               </div>
           </div>
