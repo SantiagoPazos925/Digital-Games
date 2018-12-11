@@ -1,11 +1,11 @@
 @extends('default')
 
 @section('section')
-    <div class="row titular">
+
       <div class="col-sm-12 ">
         <h1><span style="color:rgb(203, 51, 42)">Preguntas</span> Frecuentes</h1>
       </div>
-    </div>
+    
       <div class="row d-flex back">
         <div class="col-sm-12 justify-content-center lul">
           <div class="card">

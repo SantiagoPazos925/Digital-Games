@@ -12,10 +12,10 @@
 
 
 .title{
-  background-color: black;
+  background-color: white;
 }
 .titular h1{
-  color: white;
+  color: black;
   text-align: center;
   font-size: 50px;
   font-family: 'elianto', Arial, sans-serif;
@@ -107,7 +107,7 @@
   width: 100%;
   border: solid 2px;
   border-color: rgb(182, 182, 182);
-  background-color: rgb(255, 255, 255);
+  background-color: white;
 }
 
 .card-body{
@@ -126,7 +126,7 @@ padding-bottom: 50px;
 }
 
 .back{
-  background-color: rgba(54, 54, 54, 0.91);
+  background-color: white;
   border-radius: 10px;
   padding: 20px 0px;
 }
