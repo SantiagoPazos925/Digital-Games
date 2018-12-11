@@ -1,31 +1,12 @@
 @extends('default')
 
 @section('section')
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/pisobootstrap.css">
-    <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/styles.css">
-    <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/eliantoFont/stylesheet.css" type="text/css" charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-
     <div class="row titular">
       <div class="col-sm-12 ">
         <h1><span style="color:rgb(203, 51, 42)">Preguntas</span> Frecuentes</h1>
       </div>
     </div>
-
-    <section class="container">
       <div class="row d-flex back">
-
-
-
         <div class="col-sm-12 justify-content-center lul">
           <div class="card">
     <div class="card-header" id="heading">
@@ -187,22 +168,5 @@
     </div>
   </div>
         </div>
-
       </div>
-
-    </section>
-
-
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-    </body>
-
-</html>
-
-@endsection('section')
+@endsection

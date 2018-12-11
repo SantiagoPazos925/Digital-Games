@@ -6,7 +6,6 @@
 	     url('../eliantoFont/elianto-regular-webfont.ttf') format('truetype'),
 	     url('../eliantoFont/elianto-regular-webfont.svg#webfont') format('svg');
 }
-
 .header{
   padding-top: 15px;
   background-color:#b3b3b3;
