@@ -3,19 +3,23 @@
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
       <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/normalize.css">
-      <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/styles.css">
+      <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/dark.css" id="theme_css">
       <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
       <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/eliantoFont/stylesheet.css" type="text/css" charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/formStyles.css">
+      <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/formStyles.css" id="theme2_css">
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
 <div class="container-fluid header ">
+  <div class="btn-group" role="group" aria-label="Basic example">
+<button type="button" class="btn btn-secondary" id="dark">Dark</button>
+<button type="button" class="btn btn-secondary" id= 'light'>Light</button>
+</div>  
   <div class="row navBar">
     <div class="col-5  logo">
-      <h2><a style="text-decoration:none" href="index.php"><span style='color:rgb(203, 51, 42);'>Digital</span><span style="color:white;">games</span></h2></a>
+      <h2><a style="text-decoration:none" href="index.php"><span id ="logo1">Digital</span><span id="logo2">games</span></h2></a>
     </div>
     <div class="col-7  iconos">
       <div class="row">
@@ -116,6 +120,7 @@
     <p class="footerDerechos" >© DigitalGames 2018 | Todos los derechos reservados.</p>
   </div>
   <script src="js/validation.js"type="text/javascript"></script>
+  <script type="text/javascript"src="js/themes.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

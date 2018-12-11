@@ -6,6 +6,12 @@
 	     url('../eliantoFont/elianto-regular-webfont.ttf') format('truetype'),
 	     url('../eliantoFont/elianto-regular-webfont.svg#webfont') format('svg');
 }
+#logo1{
+	color: red;
+}
+#logo2{
+	color: white;
+}
 div.row{
    margin-right: 0px;
 	 margin-left: 0px;
@@ -50,7 +56,6 @@ div .iconos {
   color: white;
   font-size: 30px;
   text-align: right;
-
 }
 div .iconos i{
   padding-left: 15px;
@@ -420,7 +425,7 @@ background-color: rgb(215, 215, 215);
 }
 .cat h4{
 	background-color: rgb(32, 32, 32);
-	color: white;
+	color: red;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius:10px;
 	padding-bottom: 10px;
