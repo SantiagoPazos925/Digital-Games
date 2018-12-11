@@ -16,7 +16,7 @@
   <div class="btn-group" role="group" aria-label="Basic example">
 <button type="button" class="btn btn-secondary" id="dark">Dark</button>
 <button type="button" class="btn btn-secondary" id= 'light'>Light</button>
-</div>  
+</div>
   <div class="row navBar">
     <div class="col-5  logo">
       <h2><a style="text-decoration:none" href="index.php"><span id ="logo1">Digital</span><span id="logo2">games</span></h2></a>
