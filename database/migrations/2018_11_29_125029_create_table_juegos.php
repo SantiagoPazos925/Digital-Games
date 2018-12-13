@@ -17,8 +17,9 @@ class CreateTableJuegos extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
-            $table->string('plataform');
+            $table->string('platform');
             $table->string('genre');
+            $table->string('image');
             $table->timestamp('release_date');
             $table->decimal('price',6,2);
             $table->integer('stock');

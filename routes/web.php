@@ -10,24 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'View@inicio');
+
+Route::get('/profile', 'View@show')->middleware('auth');
 
 Route::get('/faq', function(){
   return view('faq');
 });
-Route::get('/login', function(){
-  return view('login');
-});
-Route::get('/registro', function(){
-  return view('auth.register');
-});
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/subirJuego', 'GameController@index')->name('subirJuego');
+Route::post('/subirJuego', 'GameController@create')->name('subirJuegoPOST');
+
+Route::get('/borrarJuego', 'GameController@indexBorrar')->name('borrarJuego');
+Route::post('/borrarJuego', 'GameController@borrar')->name('borrarJuegoPOST');
 
 Route::get('/buscador',function(){
   return view('buscador');

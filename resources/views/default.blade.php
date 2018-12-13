@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/eliantoFont/stylesheet.css" type="text/css" charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/formStyles.css" id="theme2_css">
+      <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/perfil.css">
       <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/pisobootstrap.css" id = "theme3_css">
     <meta charset="utf-8">
     <title></title>
@@ -20,7 +21,7 @@
 </div>
   <div class="row navBar">
     <div class="col-5  logo">
-      <h2><a style="text-decoration:none" href="index.php"><span id ="logo1">Digital</span><span id="logo2">games</span></h2></a>
+      <h2><a style="text-decoration:none" href="/"><span id ="logo1">Digital</span><span id="logo2">games</span></h2></a>
     </div>
     <div class="col-7  iconos">
       <div class="row">
@@ -35,38 +36,43 @@
             <div class="dropdown-menu menuMovil" aria-labelledby="dropdownMenuLink">
               <a class="dropdown-item" href="faq">FAQ</a>
               <a class="dropdown-item" href="login">Login</a>
-              <a class="dropdown-item" href="registro">Registro</a>
+              <a class="dropdown-item" href="register">Registro</a>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col-6   categorias">
-        <?php
-          $categoria = [
-            ["cate"=>"Home","url"=>"/", "col"=>"  col-2"],
-            ["cate"=>"Preguntas Frecuentes","url"=>"faq", "col"=>"col-4"],
-            ["cate"=>"Registro","url"=>"registro", "col"=>"col-2"],
-            ["cate"=>"Login","url"=>"login", "col"=>"col-2"],
-            // ["cate"=>$arrayUsuario["nick"],"url"=>"miPerfil.php", "col"=>"col-2"]
-          ];
-         ?>
-        <ul class="row  navigation" style="text-align: center;">
-          <?php  foreach ($categoria as $cat){
-            if (isset($arrayUsuario["nick"])){
-              if ($cat["cate"] == "Registro" || $cat["cate"] == "Login") {
-            }else {
-                echo '<div id="navText" class="'.$cat["col"].'"><a id="navText" href="'.$cat["url"].'"><li >'.$cat["cate"].'</li></a></div>';
-            }
-          }elseif (isset($cat["cate"])) {
-              echo '<div id="navText" class="'.$cat["col"].'"><a id="navText" href="'.$cat["url"].'"><li >'.$cat["cate"].'</li></a></div>';
-          }
-          }
-          ?>
-            <div class="col-2 col-lg-2 carrito">
-            <i class="ion-android-cart"></i>
+      <ul class="row  navigation" style="text-align:center;">
+        @guest
+        <div id="navText" class="col-2"><a id="navText" href="login"><li>Login</li></a></div>
+        <div id="navText" class="col-2"><a id="navText" href="register"><li>Registro</li></a></div>
+        <div id="navText" class="col-3"><a id="navText" href="faq"><li>Preguntas Frecuentes</li></a></div>
+        @endguest
+        @auth
+        <div id="navText" class="col-3"><a id="navText" href="faq"><li>Preguntas Frecuentes</li></a></div>
+        
+        <div class="navtext col-3">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ Auth::user()->nick }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item" type="button" ><a href="profile">Mi Perfil</a></button>
+              <button class="dropdown-item" type="button">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                  @csrf
+                  <button class="dropdown-item" id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
+                  </form>
+                </button>
+              
+            </div>
           </div>
-        </ul>
+     
+        @endauth
+      <div class="col-2 col-lg-2 carrito">
+      <i class="ion-android-cart"></i>
+      </div>
+      </ul>
     </div>
     </div>
   <div id="search" class="container">

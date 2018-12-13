@@ -21,9 +21,9 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('plataform');
-            $table->string('image');
+            $table->string('image')->nullable()->default('/proyecto/Proyecto/TpFinal/images/profile.png');
             $table->string('country');
-            $table->strign('province');
+            $table->string('province')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

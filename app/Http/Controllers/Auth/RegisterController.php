@@ -49,9 +49,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'fullname' => ['required', 'string', 'max:255'],
+            'nick' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'image' => ['image', 'max:255'],
+            'plataform' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
+            'province' => ['string', 'max:255'],
         ]);
     }
 
@@ -61,15 +66,21 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(Request $request)
+    protected function create(array $data)
     {
-        $inputs = $request->all();
-        return User::create([
-            'fullname' => $request['fullname'],
-            'nick'=> $request['nick'],
-            'email' => $request['email'],
-            'country'=>$request['country'],
-            'password' => Hash::make($request['password']),
-        ]);
+      if (isset($data['image'])) {
+        $folder = 'public/avatars';
+        $path = $data['image']->storePubliclyAs( $folder, $data['nick'] );
+      }
+      return User::create([
+          'fullname' => $data['fullname'],
+          'nick' => $data['nick'],
+          'country' => $data['country'],
+          'province' => $data['province']??null,
+          'email' => $data['email'],
+          'image' => $path??'/proyecto/Proyecto/TpFinal/images/profile.png',
+          'password' => Hash::make($data['password']),
+          'plataform' => $data['plataform'],
+      ]);
     }
 }

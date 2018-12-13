@@ -29,43 +29,10 @@
     </a>
   </div>
 </div>
-<?php
-  $estrenos = [
-      ["title"=>'Call Of Duty Black Ops 4',"imagen"=>'CoDBO3.jpg', "plataforma"=>'Xbox One'],
-      ["title"=>'Fallout 76',"imagen"=>'fallout76.jpg', "plataforma"=>'Xbox One'],
-      ["title"=>'Metro Exodus',"imagen"=>'MetroExodus.jpg', "plataforma"=>'Xbox One'],
-      ["title"=>'Pro Evolution Soccer 19',"imagen"=>'pes19.jpg',"plataforma"=>'PlayStation 4'],
-      ["title"=>'Call Of Duty Black Ops 4',"imagen"=>'CoDBO3.jpg', "plataforma"=>'Xbox One'],
-      ["title"=>'Dakar 18',"imagen"=>'dakar.jpg',"plataforma"=>'PlayStation 4'],
-
-    ];
-
-  $destacados = [
-
-      ["title"=>'Red Dead Redemption',"imagen"=>'redDeadRedemptionIcon.jpeg'],
-      ["title"=>'Dakar 18',"imagen"=>'dakar.jpg',"plataforma"=>'PlayStation 4'],
-      ["title"=>'Injustice 2',"imagen"=>'Injustice2.jpg'],
-    ];
-    $juegos = [
-        ["title"=>'Call Of Duty Black Ops 4',"imagen"=>'CoDBO3.jpg', "plataforma"=>'Xbox One'],
-        ["title"=>'Fallout 76',"imagen"=>'fallout76.jpg', "plataforma"=>'Xbox One'],
-        ["title"=>'Metro Exodus',"imagen"=>'MetroExodus.jpg', "plataforma"=>'Xbox One'],
-        ["title"=>'Pro Evolution Soccer 19',"imagen"=>'pes19.jpg', "plataforma"=>'PlayStation 4'],
-        ["title"=>'Battlefield 1',"imagen"=>'Battlefield 1 revolution.jpg', "plataforma"=>'PlayStation 4'],
-        ["title"=>'marvel vs Capcom',"imagen"=>'marvelvscapcom.jpg', "plataforma"=>'PlayStation 4'],
-        ["title"=>'Red Dead Redemption',"imagen"=>'redDeadRedemptionIcon.jpeg', "plataforma"=>'PlayStation 4'],
-        ["title"=>'Naruto',"imagen"=>'naruto.jpeg',"plataforma"=>'Xbox One'],
-        ["title"=>'Injustice 2',"imagen"=>'Injustice2.jpg', "plataforma"=>'PlayStation 4'],
-        ["title"=>'FarCry 5',"imagen"=>'FarCry5.jpg', "plataforma"=>'PlayStation 4'],
-        ["title"=>'Soul Calibur 6',"imagen"=>'Soulcalibur6.jpg', "plataforma"=>'PlayStation 4']
-      ];
-
-
- ?>
 <div class="container-fluid estrenos">
 
     <div class="tituloEstreno">
-      <h2>Ultimos <span style="color:rgb(203, 51, 42)">Estrenos</span</h2>
+      <h2>Ultimos <span style="color:rgb(203, 51, 42)">Estrenos</span></h2>
 
       <!-- <div class="col-4 tituloEstreno ">
           <h2 style="color:white">Des<span style="color:rgb(203, 51, 42)">tacados</span</h2>
@@ -75,17 +42,17 @@
 
         <div class="col-12 col-md-12 col-lg-12 contenedorEstrenos">
           <div class="row">
-            <?php foreach ($estrenos as $juego): ?>
+
+            <?php foreach ($nuevos as $nuevo): ?>
               <div class="contenedorImg col-6 col-md-4 col-lg-2  contPortadas">
-                  <img class=portrait src='proyecto/Proyecto/TpFinal/images/<?php echo $juego["imagen"] ?>' alt="">
-                  <p id=nombreJuego2><?php echo $juego["title"] ?></p>
-                  <p id="JuegosCat">Juegos <?php echo $juego["plataforma"] ?></p>
-                  <h4>$2560,<span style="font-size:15px;">90</span></h4>
-
-
-
+                  <img class=portrait src=" {{ Storage::url($nuevo->image) }} " alt="">
+                  <p id=nombreJuego2> {{ $nuevo->name }} </p>
+                  <p id="JuegosCat"> {{ $nuevo->platform }} </p>
+                  <h4><span style="font-size:15px;"> ${{ $nuevo->price }} </span></h4>
               </div>
             <?php endforeach; ?>
+
+
           </div>
 
       </div>
@@ -152,14 +119,14 @@
 
         <div class="col-12 col-lg-10 contenedorJuegos">
           <div class="row">
-            <?php foreach ($juegos as $juego): ?>
+            <?php foreach ($games as $game): ?>
               <div class=" contenedorImg col-6 col-md-4 col-lg-2 contPortadasIndex">
-                  <img class=portrait src='proyecto/Proyecto/TpFinal/images/<?php echo $juego["imagen"] ?>' alt="">
-                  <p id=nombreJuego><?php echo $juego["title"] ?></p>
-                  <p id="JuegosCat">Juegos <?php echo $juego["plataforma"] ?></p>
+                  <img class=portrait src=' {{ Storage::url($game->image) }} ' alt="">
+                  <p id=nombreJuego> {{ $game->name }} </p>
+                  <p id="JuegosCat"> {{ $game->platform }} </p>
                   <div class="row precioCarro">
                       <div class="col-12 precioIndex">
-                        <h4>$2560,<span style="font-size:15px;">90</span></h4>
+                        <h4><span style="font-size:15px;">${{ $game->price }} </span></h4>
                   </div>
                   <div class="col-12 enviarCarrito">
                       <button class="" type="button" name="EnviarCarrito">Añadir al carrito</button>
@@ -167,7 +134,9 @@
                 </div>
               </div>
             <?php endforeach; ?>
+            {{$games->links()}}
           </div>
+
         </div>
 
       </div>
