@@ -13,13 +13,14 @@ class CreateTableJuegos extends Migration
      */
     public function up()
     {
-        Schema::create('juegos', function (Blueprint $table) {
+        Schema::defaultStringLength(191);
+        Schema::create('games', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre')->unique();
-            $table->string('plataforma');
-            $table->string('genero');
-            $table->timestamp('lanzamiento');
-            $table->decimal('precio',6,2);
+            $table->string('name')->unique();
+            $table->string('plataform');
+            $table->string('genre');
+            $table->timestamp('release_date');
+            $table->decimal('price',6,2);
             $table->integer('stock');
             $table->timestamps();
         });

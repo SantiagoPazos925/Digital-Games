@@ -22,7 +22,7 @@ Route::get('/login', function(){
   return view('login');
 });
 Route::get('/registro', function(){
-  return view('registro');
+  return view('auth.register');
 });
 
 Auth::routes();
@@ -42,5 +42,4 @@ Route::get('/agregarjuego',function(){
 Route::post('/insert','AdminController@insert');
 Route::post('/delete','AdminController@delete');
 Route::post('/update','AdminController@update');
-
 Route::post('/insert','InsertController@insert');

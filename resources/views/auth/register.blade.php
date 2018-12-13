@@ -1,77 +1,82 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+@extends ('default')
+@section('section')
+    <title>Registrarme</title>
+  </head>
+    <div class="registrate">
+      <h2>Se parte de la comunidad <span style="color:rgb(203, 51, 42);">Digital</span>Games!</h2>
     </div>
-</div>
+    <div class=" col-10 offset-1">
+      <div class="contenedor-fluid" id="contenedorForm">
+        @csrf
+        <form class="login" action="registro" method="post" enctype="multipart/form-data" name="registro" onsubmit="return validar()">
+          <input id="nombreCompleto" class="input"  type="text" name="fullname" value="" placeholder="Nombre" onblur="revisar(this); revisarLongitud(this, 5); revisarSoloLetras(this)" onkeyup="revisar(this); revisarLongitud(this, 5); revisarSoloLetras(this)"><br>
+          <input  id="nick"class="input" type="text" name="nick" value="" placeholder="Nick" onblur="revisar(this)" onkeyup="revisar(this)"><br>
+          <input id="email"class="input" type="email" name="email" value="" placeholder="Email" onblur="revisar(this) ; revisaEmail(this)" onkeyup="revisar(this) ; revisaEmail(this)"><br>
+          <div class="userData">
+              <div class="inputUserData">
+              <select class="input" name="country" id="paises">
+              </select>
+              <div class="" id="provincias">
+              </div>
+              <script type="text/javascript">
+                  fetch('https://restcountries.eu/rest/v2/all')
+                  .then(function(data){
+                    return data.json();
+                  })
+                  .then(function(r){
+                    var paises = document.getElementById("paises");
+                    for (pais of r) {
+                        var cod = '<option value="' + pais.name + '">' + pais.name + '</option>';
+                        paises.innerHTML += cod;
+                      }
+                  })
+                  .catch(function(r){
+                    console.log('hubo un error');
+                  })
+                  var paises = document.getElementById("paises");
+                  paises.onchange = function(ev){
+                    if(this.value == 'Argentina'){
+                      fetch('https://dev.digitalhouse.com/api/getProvincias')
+                      .then(function(data){
+                        return data.json();
+                      })
+                      .then(function(r){
+                        var provincias = document.getElementById("provincias");
+                        var select = document.createElement('select');
+                        for (provincia of r) {
+                            var cod = '<option value="' + provincia.state + '">' + provincia.state + '</option>';
+                            select.innerHTML += cod;
+                          }
+                          select.className = "input";
+                        provincias.append(select);
+                      })
+                      .catch(function(r){
+                        console.log('hubo un error');
+                      })
+                    }
+                    else
+                    {
+                      var provincias = document.getElementById("provincias");
+                      provincias.innerHTML = '';
+                    }
+                    }
+              </script>
+                <span style="color:red;">*</span>
+              </div>
+          </div>
+          <label for="">Avatar<br><br><input  type="file" name="avatar" value=""></label>
+          <br><br>
+          <input  id="password" class="input" type="password" name="password" value=""placeholder="Contraseña"onblur="revisar(this)" onkeyup="revisar(this)"></label><br>
+          <input  id="password2" class="input" type="password" name="password1" value=""placeholder="Repita su contraseña"onblur="revisar(this)" onkeyup="revisar(this)"></label><br>
+          <select id="plataforma" class="input" name="plataforma" value = "">
+            <option value="">Seleccione plataforma</option>
+            <option value="ps4">PlayStation 4</option>
+            <option value="xbox">Xbox One</option>
+            <option value="pc">PC</option>
+          </select>
+          <br><br><input type="submit" name="" value="Registarme" class="enviar">
+        </form>
+      </div>
+    </div>
+    <br><br>
 @endsection
