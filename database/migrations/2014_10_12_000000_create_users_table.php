@@ -12,13 +12,18 @@ class CreateUsersTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   Schema::defaultStringLength(191);
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('fullname');
+            $table->string('nick')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('plataform');
+            $table->string('image');
+            $table->string('country');
+            $table->strign('province');
             $table->rememberToken();
             $table->timestamps();
         });
