@@ -79,11 +79,13 @@ class GameController extends Controller
      * @param  \App\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function show(Game $game)
+    public function show($id)
     {
-        //
+        $game = Game::find($id);
+        return view('juego')
+        ->with(compact('id'))
+        ->with(compact('game'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *

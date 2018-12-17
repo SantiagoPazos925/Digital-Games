@@ -1,7 +1,7 @@
 @extends('default')
 
 @section('section')
-<div class="container.fluid carouselPrincipal col-12  col-lg-8-offset-2">
+<div class="container.fluid carouselPrincipal col-12  col-lg-6 offset-lg-3">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -44,11 +44,13 @@
           <div class="row">
 
             <?php foreach ($nuevos as $nuevo): ?>
-              <div class="contenedorImg col-6 col-md-4 col-lg-2  contPortadas">
-                  <img class=portrait src=" {{ Storage::url($nuevo->image) }} " alt="">
+              <div class=" col-6 col-md-4 col-lg-2  contPortadas">
+                <div class="contenedorImg">
+                  <a href="{{$nuevo->id}}"> <img class=portrait src=" {{ Storage::url($nuevo->image) }} " alt=""></a>
                   <p id=nombreJuego2> {{ $nuevo->name }} </p>
                   <p id="JuegosCat"> {{ $nuevo->platform }} </p>
                   <h4><span style="font-size:15px;"> ${{ $nuevo->price }} </span></h4>
+                </div>
               </div>
             <?php endforeach; ?>
 
@@ -120,7 +122,7 @@
         <div class="col-12 col-lg-10 contenedorJuegos">
           <div class="row">
             <?php foreach ($games as $game): ?>
-              <div class=" contenedorImg col-6 col-md-4 col-lg-2 contPortadasIndex">
+              <div class="col-6 col-md-4 col-lg-2 contPortadasIndex">
                   <img class=portrait src=' {{ Storage::url($game->image) }} ' alt="">
                   <p id=nombreJuego> {{ $game->name }} </p>
                   <p id="JuegosCat"> {{ $game->platform }} </p>

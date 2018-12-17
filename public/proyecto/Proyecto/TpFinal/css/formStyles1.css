@@ -43,7 +43,7 @@ span.error2{
 div .logo h2{
   font-family: 'elianto', Arial, sans-serif;
   margin-top: 5px;
-  font-size: 25px;
+  
 }
 .contenedorForm{
 
@@ -102,8 +102,7 @@ form label{
 .portrait{
   margin-top:  15px;
   margin-bottom:  5px;
-  width: 140px;
-  height: 180px;
+  
   border-radius: 5px;
   transition:all .5s ease-in-out;
   filter: saturate(50%);

@@ -37,8 +37,9 @@ Route::get('/agregarjuego',function(){
   return view('insertForm');
 });
 
+Route::get('{id}','GameController@show')->name('juego');
 
-Route::post('/insert','AdminController@insert');
-Route::post('/delete','AdminController@delete');
-Route::post('/update','AdminController@update');
-Route::post('/insert','InsertController@insert');
+//Route::post('/insert','AdminController@insert');
+//Route::post('/delete','AdminController@delete');
+//Route::post('/update','AdminController@update');
+//Route::post('/insert','InsertController@insert');
