@@ -1,7 +1,7 @@
 @extends('default')
 
 @section('section')
-<div class="container.fluid carouselPrincipal col-12  col-lg-6 offset-lg-3">
+<div class="container.fluid carouselPrincipal col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -123,7 +123,7 @@
           <div class="row">
             <?php foreach ($games as $game): ?>
               <div class="col-6 col-md-4 col-lg-2 contPortadasIndex">
-                  <img class=portrait src=' {{ Storage::url($game->image) }} ' alt="">
+                  <a href="{{$game->id}}"> <img class=portrait src=" {{ Storage::url($game->image) }} " alt=""></a>
                   <p id=nombreJuego> {{ $game->name }} </p>
                   <p id="JuegosCat"> {{ $game->platform }} </p>
                   <div class="row precioCarro">

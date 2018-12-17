@@ -22,9 +22,11 @@ class GameController extends Controller
       return view('borrarJuego');
     }
 
-    public function borrar(Request $request)
-    {
-      $juego = Game::where('id', $request->input('id'))->delete();
+    public function borrar($id)
+    {   
+        
+        $game = Game::find($id)->delete();
+      return redirect('/');
     }
 
     /**
@@ -82,6 +84,7 @@ class GameController extends Controller
     public function show($id)
     {
         $game = Game::find($id);
+        
         return view('juego')
         ->with(compact('id'))
         ->with(compact('game'));
@@ -104,9 +107,30 @@ class GameController extends Controller
      * @param  \App\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Game $game)
-    {
-        //
+    public function showUpdate(Request $request, $id)
+    {   
+        
+        
+       
+        $game = Game::find($id);
+        /*->update(['name'=>$request->input('name')]);*/
+        
+        return view('editarJuego')->with(compact('game'));
+
+    }
+    public function update(Request $request,$id){
+        $game = Game::find($id)
+        ->update([
+            'name'=>$request->input('name'),
+            'platform'=>$request->input('platform'),
+            'genre'=>$request->input('genre'),
+            'price'=>$request->input('price'),
+            'stock'=>$request->input('stock'),
+            ]
+        );
+        return redirect($id);
+
+
     }
 
     /**

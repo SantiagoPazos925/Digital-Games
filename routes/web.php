@@ -25,8 +25,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/subirJuego', 'GameController@index')->name('subirJuego');
 Route::post('/subirJuego', 'GameController@create')->name('subirJuegoPOST');
 
-Route::get('/borrarJuego', 'GameController@indexBorrar')->name('borrarJuego');
-Route::post('/borrarJuego', 'GameController@borrar')->name('borrarJuegoPOST');
+
+Route::get('/borrarJuego/{id}', 'GameController@borrar');
+Route::get('/editarJuego/{id}', 'GameController@showUpdate');
+Route::post('/editarJuego/{id}', 'GameController@update');
+
 
 Route::get('/buscador',function(){
   return view('buscador');

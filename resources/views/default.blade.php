@@ -2,14 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-      <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/normalize.css">
-      <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/dark.css" id="theme_css">
+      <link rel="stylesheet" href="../proyecto/Proyecto/TpFinal/css/normalize.css">
+      <link rel="stylesheet" href="../proyecto/Proyecto/TpFinal/css/dark.css" id="theme_css">
       <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-      <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/eliantoFont/stylesheet.css" type="text/css" charset="utf-8" />
+      <link rel="stylesheet" href="../proyecto/Proyecto/TpFinal/eliantoFont/stylesheet.css" type="text/css" charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/formStyles.css" id="theme2_css">
-      <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/perfil.css">
-      <link rel="stylesheet" href="proyecto/Proyecto/TpFinal/css/pisobootstrap.css" id = "theme3_css">
+      <link rel="stylesheet" href="../proyecto/Proyecto/TpFinal/css/formStyles.css" id="theme2_css">
+      <link rel="stylesheet" href="../proyecto/Proyecto/TpFinal/css/perfil.css">
+      <link rel="stylesheet" href="../proyecto/Proyecto/TpFinal/css/pisobootstrap.css" id = "theme3_css">
     <meta charset="utf-8">
     <title></title>
   </head>
