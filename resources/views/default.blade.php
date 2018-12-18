@@ -51,23 +51,21 @@
         @endguest
         @auth
         <div id="navText" class="col-3"><a id="navText" href="faq"><li>Preguntas Frecuentes</li></a></div>
-        
-        <div class="navtext col-3">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ Auth::user()->nick }}
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <button class="dropdown-item" type="button" ><a href="profile">Mi Perfil</a></button>
-              <button class="dropdown-item" type="button">
-                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                  @csrf
-                  <button class="dropdown-item" id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
-                  </form>
-                </button>
+        <div id="" class="col-3"><a id="navText" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><li> {{ Auth::user()->nick }} &#9660</li></a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <a href="profile"style="text-decoration:none"><button class="dropdown-item" type="button" >Mi Perfil</button></a>
+            
+                @if (Auth::user()->email=='admin@admin.com')
+                <a href="subirJuego" style="text-decoration:none"><button class="dropdown-item" type="button" >Subir Juego</button></a>
+                @endif
+                
+              <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class="dropdown-item" id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
+              </form>
               
-            </div>
           </div>
-     
+        </div>
         @endauth
       <div class="col-2 col-lg-2 carrito">
       <i class="ion-android-cart"></i>

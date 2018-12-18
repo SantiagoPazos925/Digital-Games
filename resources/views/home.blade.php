@@ -91,7 +91,7 @@
       </div>
       <div class="row containerGralJuegos">
 
-        <div class="col-2 cat">
+        {{--<div class="col-2 cat">
             <ul> <h4>Plataformas</h4>
 
               <li class="categoria">PC</li>
@@ -118,8 +118,8 @@
                 </ul>
             </div>
         </div>
-
-        <div class="col-12 col-lg-10 contenedorJuegos">
+      --}}
+        <div class="col-12 col-lg-10 offset-lg-1 contenedorJuegos">
           <div class="row">
             <?php foreach ($games as $game): ?>
               <div class="col-6 col-md-4 col-lg-2 contPortadasIndex">

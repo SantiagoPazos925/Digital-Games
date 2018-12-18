@@ -177,6 +177,24 @@ padding: 0px;
   filter: saturate(50%);
 
 }
+.dropdown-menu{
+	width:240px;
+	color:white;
+	text-align: center;
+	font-size: 20px;
+	background-color: black;
+}
+.dropdown-item{
+	color:white;
+}
+.dropdown-item:focus{
+	color:white;
+	background-color:rgb(203, 51, 42); 
+}
+.dropdown-item:hover{
+	color:white;
+	background-color:rgb(203, 51, 42); 
+}
 .portrait:hover {
   filter: saturate(100%);
   border: 3px;

@@ -7,26 +7,18 @@
     </div>
     <div class=" col-10 offset-1">
       <div class="contenedor-fluid" id="contenedorForm">
-        <form class="login" action="register" method="post" enctype="multipart/form-data" name="register">
+        <form class="login" action="register" method="post" enctype="multipart/form-data" name="register" onsubmit="">
           @csrf
           <input id="nombreCompleto" class="input"  type="text" name="fullname" value="{{ old('fullname') }}" placeholder="Nombre" onblur="revisar(this); revisarLongitud(this, 5); revisarSoloLetras(this)" onkeyup="revisar(this); revisarLongitud(this, 5); revisarSoloLetras(this)"><br>
-          @if ($errors->has('fullname'))
-              <span>
-                  <strong>{{ $errors->first('fullname') }}</strong>
-              </span>
-          @endif
+          
           <input  id="nick"class="input" type="text" name="nick" value="{{ old('nick') }}" placeholder="Nick" onblur="revisar(this)" onkeyup="revisar(this)"><br>
-          @if ($errors->has('nick'))
-              <span>
-                  <strong>{{ $errors->first('nick') }}</strong>
-              </span>
-          @endif
+          
           <input id="email"class="input" type="email" name="email" value="{{ old('email') }}" placeholder="Email" onblur="revisar(this) ; revisaEmail(this)" onkeyup="revisar(this) ; revisaEmail(this)"><br>
-          @if ($errors->has('email'))
+          {{--@if ($errors->has('email'))
               <span>
                   <strong>{{ $errors->first('email') }}</strong>
               </span>
-          @endif
+          @endif--}}
           <div class="userData">
               <div class="inputUserData">
               <select class="input" name="country" id="paises" value="{{ old('country') }}">
@@ -84,11 +76,7 @@
           <br><br>
 
           <input  id="password" class="input" type="password" name="password" value=""placeholder="Contraseña"onblur="revisar(this)" onkeyup="revisar(this)"></label><br>
-          @if ($errors->has('password'))
-              <span>
-                  <strong>{{ $errors->first('password') }}</strong>
-              </span>
-          @endif
+        
           <input  id="password2" class="input" type="password" name="password_confirmation" value=""placeholder="Repita su contraseña"onblur="revisar(this)" onkeyup="revisar(this)"></label><br>
           <select id="plataforma" class="input" name="plataform" value = "{{ old('plataform') }}">
             <option value="">Seleccione plataforma</option>

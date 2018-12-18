@@ -86,7 +86,7 @@ class GameController extends Controller
         $game = Game::find($id);
         
         return view('juego')
-        ->with(compact('id'))
+        
         ->with(compact('game'));
     }
     /**
