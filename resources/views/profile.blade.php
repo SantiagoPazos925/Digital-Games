@@ -33,6 +33,9 @@
                 <button id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
                 </form>
             </div>
+            <div class="col-12 imagenApodo">
+                <a href="editarPerfil">Editar perfil</a>
+            </div>
 
         </div>
         <div class="col-12 col-lg-6 ">
@@ -50,7 +53,7 @@
                     <span ><h3 >Email: {{ Auth::user()->email }} </h3> </span><br>
                   </div>
                   <div class="col-12 info">
-                    <span ><h3 >Plataforma: {{ Auth::user()->plataform }}</h3> </span><br>
+                    <span ><h3 >Plataforma: {{ Auth::user()->platform }}</h3> </span><br>
                   </div>
                   <div class="col-12 info">
                     <span ><h3 >Pais: {{ Auth::user()->country }} </h3> </span><br>

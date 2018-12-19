@@ -16,6 +16,9 @@ Route::get('/', 'View@inicio');
 
 Route::get('/profile', 'View@show')->middleware('auth');
 
+Route::get('/editarPerfil', 'UserController@showEditarPerfil')->middleware('auth');
+Route::post('/editarPerfil', 'UserController@editarPerfil')->middleware('auth');
+
 Route::get('/faq', function(){
   return view('faq');
 });

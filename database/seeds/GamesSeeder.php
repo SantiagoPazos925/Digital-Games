@@ -10,7 +10,7 @@ class GamesSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   
+    {
         $games = [
             ['name'=>'Battlefield 1 Revolution','platform'=>'Play Station 4','genre'=>'Accion','image'=>'public/juegos/Battlefield 1 revolution.jpg','release_date'=>'2018-02-19','price'=>'3000','stock'=>'22'],
             ['name'=>'Dakar 18','platform'=>'Play Station 4','genre'=>'Carrera','image'=>'public/juegos/dakar.jpg','release_date'=>'2018-02-19','price'=>'3000','stock'=>'22'],
@@ -43,10 +43,10 @@ class GamesSeeder extends Seeder
                 'release_date'=> $game['release_date'],
                 'price'=> $game['price'],
                 'stock'=> $game['stock'],
-    
+
             ]);
         }
-       
-        
+
+
     }
 }

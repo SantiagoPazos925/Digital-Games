@@ -49,14 +49,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'fullname' => ['required', 'string', 'max:255'],
-            'nick' => ['required', 'string', 'max:255'],
+            'fullname' => ['required', 'string', 'min:5', 'max:50'],
+            'nick' => ['required', 'string', 'max:16', 'min:5'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'image' => ['image', 'max:255'],
-            'plataform' => ['required', 'string', 'max:255'],
-            'country' => ['required', 'string', 'max:255'],
-            'province' => ['string', 'max:255'],
+            'image' => ['image'],
+            'platform' => ['required', 'string'],
+            'country' => ['required', 'string'],
+            'province' => ['string'],
         ]);
     }
 
@@ -80,7 +80,7 @@ class RegisterController extends Controller
           'email' => $data['email'],
           'image' => $path??'/proyecto/Proyecto/TpFinal/images/profile.png',
           'password' => Hash::make($data['password']),
-          'plataform' => $data['plataform'],
+          'platform' => $data['platform'],
       ]);
     }
 }

@@ -13,16 +13,16 @@ class GameController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-        
+    {
+
         return view('subirJuego');
     }
 
-   
+
 
     public function borrar($id)
-    {   
-        
+    {
+
         $game = Game::find($id)->delete();
       return redirect('/');
     }
@@ -33,21 +33,27 @@ class GameController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function create(Request $request)
-         {  
-            
+         {
+
                 $this->validate( $request, [
                     'price' => 'required', 'numeral',
                     'stock' => 'required', 'numeral',
-                    'name' => 'required', 'string', 'min:2', 'unique:games',
-                    'release_date' => 'date',
+                    'name' => 'unique:games', 'string', 'min:2',
+                    'release_date' => 'required',
                     'image' => 'required', 'mimes:jpeg,png,jpg,gif',
                     'genre' => 'required',
                     'platform' => 'required',
-                ]);
+                ],
+              [
+                'name.required' => 'Debe ingresar un titulo.',
+                'name.string' => 'Valores ingresados no aceptados.',
+                'name.unique' => 'Juego ya registrado.',
+                'name.min' => 'El titulo debe tener mas de 2 caracteres.',
+              ]);
                 if ($request->file('image')) {
                   $folder = 'public/juegos';
                   $path = $request->file('image')->storePublicly( $folder );
-                  
+
                 }
                  $product = Game::create([
                     'name' => $request->input('name'),
@@ -58,10 +64,10 @@ class GameController extends Controller
                     'genre' => $request->input('genre'),
                     'platform' => $request->input('platform'),
                 ]);
-     
+
                 return redirect('/');
-            
-          
+
+
 
          }
 
@@ -83,14 +89,14 @@ class GameController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {   
+    {
             $game = Game::find($id);
             if(isset($game)){
-            return view('juego')->with(compact('game'));  
+            return view('juego')->with(compact('game'));
         }else{
             return redirect('/');
         }
-       
+
     }
     /**
      * Show the form for editing the specified resource.
@@ -111,26 +117,47 @@ class GameController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function showUpdate(Request $request, $id)
-    {   
-        
-        
-       
+    {
+
         $game = Game::find($id);
         /*->update(['name'=>$request->input('name')]);*/
-        
         return view('editarJuego')->with(compact('game'));
 
     }
     public function update(Request $request,$id){
-        $game = Game::find($id)
-        ->update([
+
+
+        $this->validate( $request, [
+            'price' => 'required', 'numeral',
+            'stock' => 'required', 'numeral',
+            'name' => 'unique:games', 'string', 'min:2',
+            'release_date' => 'required',
+            'image' => 'required', 'mimes:jpeg,png,jpg,gif',
+            'genre' => 'required',
+            'platform' => 'required',
+          ],
+        [
+          'name.required' => 'Debe ingresar un titulo.',
+          'name.string' => 'Valores ingresados no aceptados.',
+          'name.unique' => 'Juego ya registrado.',
+          'name.min' => 'El titulo debe tener mas de 2 caracteres.',
+        ]);
+
+        if ($request->file('image')) {
+          $folder = 'public/juegos';
+          $path = $request->file('image')->storePublicly( $folder );
+
+        }
+
+        $game = Game::find($id)->update([
             'name'=>$request->input('name'),
             'platform'=>$request->input('platform'),
             'genre'=>$request->input('genre'),
+            'release_date' => $request->input('release_date'),
             'price'=>$request->input('price'),
+            'image' => $path??null,
             'stock'=>$request->input('stock'),
-            ]
-        );
+            ]);
         return redirect($id);
 
 
