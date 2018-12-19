@@ -10,6 +10,7 @@ class View extends Controller
       return view('profile');
   }
   public function inicio() {
+      
       $nuevos = Game::paginate(6);
       $games = Game::paginate(18);
       return view('/home')->with(compact('games'))->with(compact('nuevos'));

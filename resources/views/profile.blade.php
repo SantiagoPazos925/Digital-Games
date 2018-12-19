@@ -7,7 +7,7 @@
   </div>
   <div class="row  ">
 <?php $user = Auth::user() ?>
-        <div class=" col-6 contenedorImagenPerfil">
+        <div class=" col-12 col-lg-6 contenedorImagenPerfil">
           <div class="col-12">
             <img src="
 
@@ -35,7 +35,7 @@
             </div>
 
         </div>
-        <div class="col-6 ">
+        <div class="col-12 col-lg-6 ">
               <form class="" action="miPerfil.php" method="post">
                 <div class="row col-12  infoUsuario">
                   <div class="col-12 info">

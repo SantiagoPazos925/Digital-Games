@@ -60,8 +60,16 @@ div .logo h2{
 	padding-right: 100px;
 	padding-top: 50px;
 	padding-bottom: 50px;
-	background-color: rgba(54, 54, 54, 0.91);
+  background-color: rgba(54, 54, 54, 0.91);
+  
 }
+.contenedor-fluid{
+
+  padding:0px;
+  margin:0px;
+  
+}
+
 .search {
   text-align: center;
   padding-bottom: 15px;
@@ -82,9 +90,7 @@ padding-right: 0px;
 h4.error{
 	color: red;
 }
-form label{
-	color: white;
-}
+
 .iconSearch {
   padding-right: 30px;
   text-align: center;
@@ -140,8 +146,8 @@ form label{
   transition:all .5s ease-in-out;
   filter: saturate(50%);
 }
-.estrenos{
-
+.login{
+  background-color: rgba(134, 134, 134, 0.5);
 
 }
 .uno{

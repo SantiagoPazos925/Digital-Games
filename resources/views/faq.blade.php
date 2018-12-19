@@ -3,20 +3,16 @@
 @section('section')
 
      
-<div class="col-sm-12 ">
-    <h1><span style="color:rgb(203, 51, 42)">Preguntas</span> Frecuentes</h1>
-  </div>
-      <div class="row d-flex back " >
-          
-        <div class="col-lg-6 offset-lg-3" style="">
+
+      <div class="row d-flex back" >
+        <h1 style=" color:white; padding-top:150px ;text-align:center" class="col-lg-4 offset-lg-4"><span style="color:rgb(203, 51, 42)">Preguntas</span> Frecuentes</h1>
+        <div class=" col-lg-6 offset-lg-3 " style="padding-top:50px">
         <div class="col-sm-12  justify-content-center lul">
                   <div class="card">
             <div class="card-header" id="heading">
               <h5 class="mb-0">
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <div class="col-12 pregunta">
-                    <p>Que medios de pago aceptan?<p>
-                  </div>
+                  <p>Que medios de pago aceptan?<p>
 
                 </button>
               </h5>

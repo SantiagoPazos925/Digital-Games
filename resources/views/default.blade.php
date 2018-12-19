@@ -34,9 +34,23 @@
               <i class="ion-navicon-round"></i>
             </a>
             <div class="dropdown-menu menuMovil" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="faq">FAQ</a>
-              <a class="dropdown-item" href="login">Login</a>
-              <a class="dropdown-item" href="register">Registro</a>
+                @auth
+                <a class="dropdown-item" > {{Auth::user()->nick}}</a>
+                <a class="dropdown-item" href="/faq">FAQ</a>
+              <a href="/profile" class="dropdown-item">Mi Perfil</a>
+              @if (Auth::user()->email=='admin@admin.com')
+              <a href="/subirJuego" style="text-decoration:none"><button class="dropdown-item" type="button" >Subir Juego</button></a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                  @csrf
+                  <button class="dropdown-item" id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
+                </form>
+              @endif
+              @endauth
+              @guest
+              <a class="dropdown-item" href="/faq">FAQ</a>
+              <a class="dropdown-item" href="/login">Login</a>
+              <a class="dropdown-item" href="/register">Registro</a>
+              @endguest
             </div>
           </div>
         </div>
@@ -45,18 +59,18 @@
     <div class="col-6   categorias">
       <ul class="row  navigation" style="text-align:center;">
         @guest
-        <div id="navText" class="col-2"><a id="navText" href="login"><li>Login</li></a></div>
-        <div id="navText" class="col-2"><a id="navText" href="register"><li>Registro</li></a></div>
-        <div id="navText" class="col-3"><a id="navText" href="faq"><li>Preguntas Frecuentes</li></a></div>
+        <div id="navText" class="col-2"><a id="navText" href="/login"><li>Login</li></a></div>
+        <div id="navText" class="col-2"><a id="navText" href="/register"><li>Registro</li></a></div>
+        <div id="navText" class="col-3"><a id="navText" href="/faq"><li>Preguntas Frecuentes</li></a></div>
         @endguest
         @auth
         <div id="navText" class="col-3"><a id="navText" href="faq"><li>Preguntas Frecuentes</li></a></div>
         <div id="" class="col-3"><a id="navText" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><li> {{ Auth::user()->nick }} &#9660</li></a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <a href="profile"style="text-decoration:none"><button class="dropdown-item" type="button" >Mi Perfil</button></a>
+              <a href="/profile"style="text-decoration:none"><button class="dropdown-item" type="button" >Mi Perfil</button></a>
             
                 @if (Auth::user()->email=='admin@admin.com')
-                <a href="subirJuego" style="text-decoration:none"><button class="dropdown-item" type="button" >Subir Juego</button></a>
+                <a href="/subirJuego" style="text-decoration:none"><button class="dropdown-item" type="button" >Subir Juego</button></a>
                 @endif
                 
               <form id="logout-form" action="{{ route('logout') }}" method="POST">

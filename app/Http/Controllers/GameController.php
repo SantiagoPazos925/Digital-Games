@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
 use App\Game;
 use Illuminate\Http\Request;
 
@@ -13,14 +13,12 @@ class GameController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-      return view('subirJuego');
+    { 
+        
+        return view('subirJuego');
     }
 
-    public function indexBorrar()
-    {
-      return view('borrarJuego');
-    }
+   
 
     public function borrar($id)
     {   
@@ -35,32 +33,35 @@ class GameController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function create(Request $request)
-         {
-           $this->validate( $request, [
-               'price' => 'required', 'numeral',
-               'stock' => 'required', 'numeral',
-               'name' => 'required', 'string', 'min:2', 'unique:games',
-               'release_date' => 'date',
-               'image' => 'required', 'mimes:jpeg,png,jpg,gif',
-               'genre' => 'required',
-               'platform' => 'required',
-           ]);
-           if ($request->file('image')) {
-             $folder = 'public/juegos';
-             $path = $request->file('image')->storePublicly( $folder );
-             
-           }
-            $product = Game::create([
-               'name' => $request->input('name'),
-               'price' => $request->input('price'),
-               'release_date' => $request->input('release_date'),
-               'image' => $path??null,
-               'stock' => $request->input('stock'),
-               'genre' => $request->input('genre'),
-               'platform' => $request->input('platform'),
-           ]);
-
-           return redirect('/');
+         {  
+            
+                $this->validate( $request, [
+                    'price' => 'required', 'numeral',
+                    'stock' => 'required', 'numeral',
+                    'name' => 'required', 'string', 'min:2', 'unique:games',
+                    'release_date' => 'date',
+                    'image' => 'required', 'mimes:jpeg,png,jpg,gif',
+                    'genre' => 'required',
+                    'platform' => 'required',
+                ]);
+                if ($request->file('image')) {
+                  $folder = 'public/juegos';
+                  $path = $request->file('image')->storePublicly( $folder );
+                  
+                }
+                 $product = Game::create([
+                    'name' => $request->input('name'),
+                    'price' => $request->input('price'),
+                    'release_date' => $request->input('release_date'),
+                    'image' => $path??null,
+                    'stock' => $request->input('stock'),
+                    'genre' => $request->input('genre'),
+                    'platform' => $request->input('platform'),
+                ]);
+     
+                return redirect('/');
+            
+          
 
          }
 
@@ -82,12 +83,14 @@ class GameController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        $game = Game::find($id);
-        
-        return view('juego')
-        
-        ->with(compact('game'));
+    {   
+            $game = Game::find($id);
+            if(isset($game)){
+            return view('juego')->with(compact('game'));  
+        }else{
+            return redirect('/');
+        }
+       
     }
     /**
      * Show the form for editing the specified resource.

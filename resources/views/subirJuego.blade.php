@@ -1,7 +1,15 @@
 @extends ('default')
 @section('section')
+
   <title>Sube tu juego!</title>
   </head>
+        @auth
+            <?php if (Auth::user()->email !='admin@admin.com'){
+                return redirect('/subirJuego');
+            }
+            ?>
+            
+        @endauth
     <div class="registrate">
       <h2>Sube tu juego!</h2>
     </div>

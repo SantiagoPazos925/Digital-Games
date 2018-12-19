@@ -5,23 +5,19 @@
     <div class="registrate">
       <h2>Se parte de la comunidad <span style="color:rgb(203, 51, 42);">Digital</span>Games!</h2>
     </div>
-    <div class=" col-10 offset-1">
-      <div class="contenedor-fluid" id="contenedorForm">
+    <div class="col-12 col-md-10 offset-md-1 ">
+      <div class="contenedor-fluid py-5" id="contenedorForm">
         <form class="login" action="register" method="post" enctype="multipart/form-data" name="register" onsubmit="">
           @csrf
-          <input id="nombreCompleto" class="input"  type="text" name="fullname" value="{{ old('fullname') }}" placeholder="Nombre" onblur="revisar(this); revisarLongitud(this, 5); revisarSoloLetras(this)" onkeyup="revisar(this); revisarLongitud(this, 5); revisarSoloLetras(this)"><br>
+          <input id="fullname" class=" input"  type="text" name="fullname" value="{{ old('fullname') }}" placeholder="Nombre Completo" {{--onblur="revisar(this); revisarLongitud(this, 5); revisarSoloLetras(this)" onkeyup="revisar(this); revisarLongitud(this, 5); revisarSoloLetras(this)"--}}><br>
           
-          <input  id="nick"class="input" type="text" name="nick" value="{{ old('nick') }}" placeholder="Nick" onblur="revisar(this)" onkeyup="revisar(this)"><br>
+          <input  id="nick"class=" input" type="text" name="nick" value="{{ old('nick') }}" placeholder="Nick" {{--onblur="revisar(this)" onkeyup="revisar(this)"--}}><br>
           
-          <input id="email"class="input" type="email" name="email" value="{{ old('email') }}" placeholder="Email" onblur="revisar(this) ; revisaEmail(this)" onkeyup="revisar(this) ; revisaEmail(this)"><br>
-          {{--@if ($errors->has('email'))
-              <span>
-                  <strong>{{ $errors->first('email') }}</strong>
-              </span>
-          @endif--}}
-          <div class="userData">
+          <input id="email"class=" input" type="email" name="email" value="{{ old('email') }}" placeholder="Email" {{-- onblur="revisar(this) ; revisaEmail(this)" onkeyup="revisar(this) ; revisaEmail(this)"--}}><br>
+         
+          <div class="userData ">
               <div class="inputUserData">
-              <select class="input" name="country" id="paises" value="{{ old('country') }}">
+              <select class="col-10 col-sm-8 offet-sm-2 col-md-6 col-lg-4 col-xl-3 input" name="country" id="paises" value="{{ old('country') }}">
               </select>
               <div class="" id="provincias">
               </div>
@@ -72,13 +68,14 @@
                 <span style="color:red;">*</span>
               </div>
           </div>
-          <label for="">Avatar<br><br><input  type="file" name="image" value=""></label>
+          <h3 style="color:white">Sube tu <span style="color:rgb(203, 51, 42);">Avatar</span></h3><br>
+          <input  type="file" name="image" value=""></label>
           <br><br>
 
-          <input  id="password" class="input" type="password" name="password" value=""placeholder="Contraseña"onblur="revisar(this)" onkeyup="revisar(this)"></label><br>
+          <input  id="password" class="input" type="password" name="password" value=""placeholder="Contraseña" {{--onblur="revisar(this)" onkeyup="revisar(this)"--}}></label><br>
         
-          <input  id="password2" class="input" type="password" name="password_confirmation" value=""placeholder="Repita su contraseña"onblur="revisar(this)" onkeyup="revisar(this)"></label><br>
-          <select id="plataforma" class="input" name="plataform" value = "{{ old('plataform') }}">
+          <input  id="password2" class="input" type="password" name="password_confirmation" value=""placeholder="Repita su contraseña" {{--onblur="revisar(this)" onkeyup="revisar(this)"--}}></label><br>
+           <select id="plataforma" class="input " name="plataform" value = "{{ old('plataform') }}">
             <option value="">Seleccione plataforma</option>
             <option value="ps4">PlayStation 4</option>
             <option value="xbox">Xbox One</option>
@@ -87,6 +84,7 @@
           <br><br><input type="submit" name="" value="Registarme" class="enviar">
         </form>
       </div>
+      
     </div>
     <br><br>
 @endsection

@@ -22,7 +22,7 @@ Route::get('/faq', function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/subirJuego', 'GameController@index')->name('subirJuego');
+Route::get('/subirJuego', 'GameController@index')->name('subirJuego')->middleware('auth');
 Route::post('/subirJuego', 'GameController@create')->name('subirJuegoPOST');
 
 
