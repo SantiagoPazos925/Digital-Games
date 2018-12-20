@@ -4,9 +4,9 @@
 
 <div class="container-fluid perfilInfo"style="background-color:#23282F">
  
-  <div class="col-12 ">
+  <div class="col-12 pb-5">
         <div class="row">
-                <div class="text-center col-md-8 offset-md-2 col-lg-4 offset-lg-1 ">
+                <div class="text-center col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-1 ">
                     <img class="my-lg-5 imgGame" class="img-fluid " alt="Responsive image" src="{{ Storage::url($game->image) }}">
                 </div>
             
@@ -26,13 +26,13 @@
                         <div class="row">
                             @auth
                                 @if (Auth::user()->email=='admin@admin.com')
-                                    <div class=col-6>
+                                    <div class="col-5 offset-1">
                                     
-                                        <a class="enviar" href="/editarJuego/{{$game->id}}">Editar</a>
+                                        <a class="enviar px-2 " href="/editarJuego/{{$game->id}}">Editar</a>
                                                 
                                     </div>
-                                    <div class=col-6>
-                                        <a class="enviar" href="/borrarJuego/{{$game->id}}">Borrar</a>  
+                                    <div class="col-6">
+                                        <a class="enviar px-2" href="/borrarJuego/{{$game->id}}">Borrar</a>  
                                     </div>
                                     @endauth
                                 @endif

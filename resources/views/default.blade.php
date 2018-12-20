@@ -35,7 +35,7 @@
             </a>
             <div class="dropdown-menu menuMovil" aria-labelledby="dropdownMenuLink">
                 @auth
-                <a class="dropdown-item" > {{Auth::user()->nick}}</a>
+                <a class="dropdown-item" style="color:red; font-weight:bold" > {{Auth::user()->nick}}</a>
                 <a class="dropdown-item" href="/faq">FAQ</a>
               <a href="/profile" class="dropdown-item">Mi Perfil</a>
               @if (Auth::user()->email=='admin@admin.com')

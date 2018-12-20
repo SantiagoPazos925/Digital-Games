@@ -13,7 +13,7 @@
     <div class="registrate">
       <h2>Sube tu juego!</h2>
     </div>
-    <div class=" col-10 offset-1">
+    <div class=" col-12">
       <div class="contenedor-fluid" id="contenedorForm">
         <form class="login" action="subirJuego" method="post" enctype="multipart/form-data" name="register">
           @csrf
@@ -59,9 +59,9 @@
               </span>
           @endif
         </div>
-          <div class="">
-            <label for="">Platform</label>
-            <select class="" name="platform">
+          
+            
+            <select class="col-12 col-md-5 col-lg-3 input" name="platform">
               <option value="">Seleccione su plataforma</option>
               <option value="PC">PC</option>
               <option value="Playstation 4">Playstation 4</option>
@@ -75,11 +75,11 @@
                 </span>
             @endif
           </div>
-          </div>
+          
 
           <div class="">
-            <label for="">Genre</label>
-            <select class="" name="genre">
+            
+            <select class="input" name="genre">
               <option value="">Seleccione un genero</option>
               <option value="Accion">Accion</option>
               <option value="Aventura">Aventura</option>

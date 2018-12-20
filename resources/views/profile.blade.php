@@ -34,7 +34,7 @@
                 </form>
             </div>
             <div class="col-12 imagenApodo">
-                <a href="editarPerfil">Editar perfil</a>
+                <button><a href="editarPerfil">Editar perfil</a></button>
             </div>
 
         </div>

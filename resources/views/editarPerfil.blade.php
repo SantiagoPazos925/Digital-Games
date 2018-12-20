@@ -142,7 +142,19 @@
               </span>
           @endif
         </div>
-          <a href="profile" class="enviar">Volver</a><input type="submit" name="" value="Aplicar cambios" class="enviar">
+          
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="row">
+                <div class="col-6">
+                    <button ><a style="font-size:25px"href="profile" class="">Volver</a></button>
+                </div>
+                <div class="col-6 ">
+                    <button type="submit" style="font-size:25px"name="" value="" class=" ">Guardar</button>
+                  </div>
+            </div>
+           
+          </div>
+           
         </form>
       </div>
 
