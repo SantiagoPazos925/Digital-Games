@@ -89,18 +89,28 @@ div .logo {
 	margin-bottom: 10px;
 	border-radius: 9px;
 	text-align: left;
-}
-input.error{
 	
-	background-color: #F78181;
+}
+
+.inputError{
+	color:#3c3c3c;
+	font-size:18px;
+	line-height: 22px;
+	
 	padding: 13px 45px 13px 45px;
 	margin-bottom: 10px;
 	border-radius: 9px;
 	text-align: left;
-	border: 0px;
+	border:2px solid red;
+
 }
-input.error::-webkit-input-placeholder{
-	color:white;
+#textError{
+	color:red;
+	font-style: italic;
+}
+#textError2{
+	color:red;
+	font-style: italic;
 }
 
 .enviar{
@@ -126,6 +136,7 @@ input.error::-webkit-input-placeholder{
 	color:#1b8f31;
 	padding: 13px 45px 13px 45px;
 }
+
 div .logo h2{
   font-family: 'elianto', Arial, sans-serif;
   margin-top: 5px;

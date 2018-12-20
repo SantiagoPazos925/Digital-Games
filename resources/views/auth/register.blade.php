@@ -9,7 +9,7 @@
       <div class="contenedor-fluid py-5" id="contenedorForm">
         <form class="login" action="register" method="post" enctype="multipart/form-data" name="register" onsubmit="">
           @csrf
-          <input id="fullname" class=" input"  type="text" name="fullname" value="{{ old('fullname') }}" placeholder="Nombre Completo" {{--onblur="revisar(this); revisarLongitud(this, 5); revisarSoloLetras(this)" onkeyup="revisar(this); revisarLongitud(this, 5); revisarSoloLetras(this)"--}}><br>
+          <input id="fullname" class=" input"  type="text" name="fullname" value="{{ old('fullname') }}" placeholder="Nombre Completo" onblur="revisar(this);revisarLongitud(this, 5); revisarSoloLetras(this)" onkeyup="revisar(this); revisarSoloLetras(this); revisarLongitud(this, 5) "><br>
           <div>
           @if ($errors->has('fullname'))
               <span>
@@ -17,7 +17,7 @@
               </span>
           @endif
         </div>
-          <input  id="nick"class=" input" type="text" name="nick" value="{{ old('nick') }}" placeholder="Nick" {{--onblur="revisar(this)" onkeyup="revisar(this)"--}}><br>
+          <input  id="nick"class=" input" type="text" name="nick" value="{{ old('nick') }}" placeholder="Nick" onblur="revisar(this);revisarLongitud(this, 5)" onkeyup="revisar(this);revisarLongitud(this, 5)"><br>
           <div>
           @if ($errors->has('nick'))
               <span>
@@ -25,7 +25,7 @@
               </span>
           @endif
         </div>
-          <input id="email"class=" input" type="email" name="email" value="{{ old('email') }}" placeholder="Email" {{-- onblur="revisar(this) ; revisaEmail(this)" onkeyup="revisar(this) ; revisaEmail(this)"--}}><br>
+          <input id="email"class=" input" type="email" name="email" value="{{ old('email') }}" placeholder="Email" onblur="revisar(this):revisaEmail(this)" onkeyup="revisar(this) ; revisaEmail(this)"><br>
           <div>
           @if ($errors->has('email'))
               <span>
@@ -111,7 +111,7 @@
               </span>
           @endif
         </div>
-          <input  id="password" class="input" type="password" name="password" value=""placeholder="Contraseña" {{--onblur="revisar(this)" onkeyup="revisar(this)"--}}></label><br>
+          <input  id="password" class="input" type="password" name="password" value=""placeholder="Contraseña" onblur="revisar(this);revisarLongitud(this, 6) " onkeyup="revisar(this) revisarLongitud(this, 6)"></label><br>
           <div>
           @if ($errors->has('password'))
               <span>
@@ -119,8 +119,8 @@
               </span>
           @endif
         </div>
-          <input  id="password2" class="input" type="password" name="password_confirmation" value=""placeholder="Repita su contraseña" {{--onblur="revisar(this)" onkeyup="revisar(this)"--}}></label><br>
-           <select id="plataforma" class="input " name="platform" value = "{{ old('platform') }}">
+          <input  id="password2" class="input" type="password" name="password_confirmation" value=""placeholder="Repita su contraseña" onblur="revisar(this);revisaPassword(this); revisarLongitud(this, 6)" onkeyup="revisar(this) revisarLongitud(this, 6)"></label><br>
+           <select id="plataforma" class="input " name="platform" value = "{{ old('platform') }}"onblur="revisar(this)">
             <option value="">Seleccione plataforma</option>
             <option value="ps4">PlayStation 4</option>
             <option value="xbox">Xbox One</option>
