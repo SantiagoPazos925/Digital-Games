@@ -15,38 +15,38 @@
     </div>
     <div class=" col-12">
       <div class="contenedor-fluid" id="contenedorForm">
-        <form class="login" action="subirJuego" method="post" enctype="multipart/form-data" name="register">
+        <form class="login" action="subirJuego" method="post" enctype="multipart/form-data" name="register" onsubmit="return validarJuego()">
           @csrf
-          <input id="nombreCompleto" class="input"  type="text" name="name" value="{{ old('name') }}" placeholder="Titulo" ><br>
+          <input id="name" class="input"  type="text" name="name" value="{{ old('name') }}" placeholder="Titulo" onblur="revisar(this); revisarLongitud(this,2)" onkeyup="revisar(this)" ><br>
           <div>
           @if ($errors->has('name'))
               <span>
-                  <strong>{{ $errors->first('name') }}</strong>
+                  <strong style="color:red">{{ $errors->first('name') }}</strong>
               </span>
           @endif
         </div>
 
-          <input id="nombreCompleto" class="input"  type="number" name="price" value="{{ old('price') }}" placeholder="Precio" ><br>
+          <input id="price" class="input"  type="number" name="price" value="{{ old('price') }}" placeholder="Precio" onblur="revisar(this);revisaNum(this)"onkeyup="revisar(this);revisaNum(this)" ><br>
           <div>
           @if ($errors->has('price'))
               <span>
-                  <strong>{{ $errors->first('price') }}</strong>
+                  <strong style="color:red">{{ $errors->first('price') }}</strong>
               </span>
           @endif
         </div>
-          <input id="nombreCompleto" class="input"  type="number" name="stock" value="{{ old('stock') }}" placeholder="Stock" ><br>
+          <input id="stock" class="input"  type="number" name="stock" value="{{ old('stock') }}" placeholder="Stock" onblur="revisar(this);revisaNum(this)"onkeyup="revisar(this);revisaNum(this)" ><br>
           <div>
           @if ($errors->has('stock'))
               <span>
-                  <strong>{{ $errors->first('stock') }}</strong>
+                  <strong style="color:red">{{ $errors->first('stock') }}</strong>
               </span>
           @endif
         </div>
-          <input id="nombreCompleto" class="input"  type="date" name="release_date" value="{{ old('release_date') }}" ><br>
+          <input id="release_date" class="input"style="min-width:292px" type="date" name="release_date" value="{{ old('release_date') }}" onblur="revisar(this); revisaFecha(this)" ><br>
           <div>
           @if ($errors->has('release_date'))
               <span>
-                  <strong>{{ $errors->first('release_date') }}</strong>
+                  <strong style="color:red">{{ $errors->first('release_date') }}</strong>
               </span>
           @endif
         </div>
@@ -55,13 +55,13 @@
           <div>
           @if ($errors->has('image'))
               <span>
-                  <strong>{{ $errors->first('image') }}</strong>
+                  <strong style="color:red">{{ $errors->first('image') }}</strong>
               </span>
           @endif
         </div>
           
             
-            <select class="col-12 col-md-5 col-lg-3 input" name="platform">
+            <select class="input" style="max-width:295px"name="platform" onblur="revisar(this)">
               <option value="">Seleccione su plataforma</option>
               <option value="PC">PC</option>
               <option value="Playstation 4">Playstation 4</option>
@@ -71,7 +71,7 @@
             <div>
             @if ($errors->has('platform'))
                 <span>
-                    <strong>{{ $errors->first('platform') }}</strong>
+                    <strong style="color:red">{{ $errors->first('platform') }}</strong>
                 </span>
             @endif
           </div>
@@ -79,7 +79,7 @@
 
           <div class="">
             
-            <select class="input" name="genre">
+            <select class="input" name="genre" onblur="revisar(this)">
               <option value="">Seleccione un genero</option>
               <option value="Accion">Accion</option>
               <option value="Aventura">Aventura</option>
@@ -89,7 +89,7 @@
             <div>
             @if ($errors->has('genre'))
                 <span>
-                    <strong>{{ $errors->first('genre') }}</strong>
+                    <strong style="color:red">{{ $errors->first('genre') }}</strong>
                 </span>
             @endif
           </div>

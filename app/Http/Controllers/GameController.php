@@ -36,10 +36,10 @@ class GameController extends Controller
          {
 
                 $this->validate( $request, [
+                    'name' => 'required|unique:games|string|min:2',
                     'price' => 'required', 'numeral',
                     'stock' => 'required', 'numeral',
-                    'name' => 'unique:games', 'string', 'min:2',
-                    'release_date' => 'required',
+                    'release_date' => 'required|date',
                     'image' => 'required', 'mimes:jpeg,png,jpg,gif',
                     'genre' => 'required',
                     'platform' => 'required',
@@ -49,6 +49,21 @@ class GameController extends Controller
                 'name.string' => 'Valores ingresados no aceptados.',
                 'name.unique' => 'Juego ya registrado.',
                 'name.min' => 'El titulo debe tener mas de 2 caracteres.',
+
+                'price.required' => 'Debe ingresar un precio.',
+                'price.numeral' => 'Tiene que ingresar un numero',
+
+                'stock.required' => 'Debe ingresar un precio.',
+                'stock.numeral' => 'Tiene que ingresar un numero',
+
+                'release_date.required' => 'Debe ingresar una fecha',
+                'release_date.date' => 'Debe ingresar un formato fecha',
+
+                'image.required' => 'Debe subir una portada',
+                'image.mimes' => 'Formato de imagen inválida',
+
+                'genre.required' => 'Debe seleccionar un genero', 
+                'platform.required' => 'Debe seleccionar una plataforma',  
               ]);
                 if ($request->file('image')) {
                   $folder = 'public/juegos';

@@ -33,7 +33,7 @@ function revisar(elemento){
   }
 
   }
-
+  
 
 
   function revisarSoloLetras(elemento){
@@ -79,6 +79,22 @@ function revisar(elemento){
       }
     }
   }
+  function revisaFecha(elemento){
+    var pattern =/^([0-9]{4})\-([0-9]{2})\-([0-9]{2})$/;
+    var fecha = document.getElementById('release_date');
+    console.log(fecha.value);
+    if (!pattern.test(fecha.value)) {
+      elemento.className='inputError';
+    }else {
+      elemento.className='input ';
+    }
+
+
+  }
+  
+
+
+
 
   function revisaPassword(elemento){
       var pass = document.getElementById('password');
@@ -115,8 +131,12 @@ function revisar(elemento){
     if (nick.value == "" || nick.value.length < min)  {
         datosCorrectos = false;
     }
-    if (!emailCorrecto.test(email.value)) {
+    
+    if (email.value !== ''){
+      if(!emailCorrecto.test(email.value)){
         datosCorrectos = false;
+      }
+       
     }
 
     if (!datosCorrectos) {
@@ -130,6 +150,10 @@ function revisar(elemento){
     var name = document.getElementById("name");
     var stock = document.getElementById("stock");
     var price = document.getElementById("price");
+    var release_date = document.getElementById("release_date");
+    var genre = document.getElementById("genre");
+    var platform = document.getElementById("platform");
+
     if (name.value == "" || name.value.length < min ) {
       datosCorrectos = false;
     }
@@ -139,6 +163,16 @@ function revisar(elemento){
     if(price.value == "" || isNaN(price)){
       datosCorrectos = false;
     }
+    if (release_date.value == "" || revisaFecha(release_date)) {
+      datosCorrectos = false;
+    }
+    if (genre.value == "" ) {
+      datosCorrectos = false;
+    }
+    if (platform.value =="") {
+      datosCorrectos = false;
+    }
+    
     if (!datosCorrectos) {
       alert('Hay Errores En El Formulario');
     }

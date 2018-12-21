@@ -25,10 +25,8 @@
     </div>
     <div class="col-7  iconos">
       <div class="row">
-        <div class="col-6">
-          <i class="ion-android-cart"></i>
-        </div>
-        <div class="col-6">
+      
+        <div class="col-12">
           <div class="dropdown show">
             <a class="menuBoton" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="ion-navicon-round"></i>
@@ -40,11 +38,12 @@
               <a href="/profile" class="dropdown-item">Mi Perfil</a>
               @if (Auth::user()->email=='admin@admin.com')
               <a href="/subirJuego" style="text-decoration:none"><button class="dropdown-item" type="button" >Subir Juego</button></a>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                  @csrf
-                  <button class="dropdown-item" id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
-                </form>
+             
               @endif
+              <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class="dropdown-item" id="cerrarSesion" type="submit" name="logout">Cerrar Sesion</button>
+              </form>
               @endauth
               @guest
               <a class="dropdown-item" href="/faq">FAQ</a>
@@ -81,43 +80,33 @@
           </div>
         </div>
         @endauth
-      <div class="col-2 col-lg-2 carrito">
-      <i class="ion-android-cart"></i>
-      </div>
+      
       </ul>
     </div>
     </div>
-  <div id="search" class="container">
-    <div class="row buscador">
-      <div  class="col-10 searching ">
-        <input type="search" name="" value="" placeholder="Busca tu juego aqui">
-      </div>
-      <div class="col-2 iconSearch">
-        <i class="ion-search"></i>
-      </div>
-    </div>
-    </div>
+
   </div>
+
 @yield('section')
   <div class="container-fluid footer">
-    <div class="row col-12 foot">
+    <div class="row col-12 foot" style="color:white">
       <div class="col-12 col-md-4 col-lg-4">
         <h5>Acerca de nosotros</h5>
-        <h6><a href="#">¿Quiénes somos?</a> </h6>
-        <h6><a href="#">¿Dónde estamos?</a>  </h6>
-        <h6><a href="#">Contáctanos</a>  </h6>
+        <h6>¿Quiénes somos? </h6>
+        <h6>¿Dónde estamos?  </h6>
+        <h6>Contáctanos  </h6>
       </div>
       <div class="col-12 col-md-4 col-lg-4">
         <h5>Condiciones de servicio</h5>
-        <h6><a href="#">Condiciones de envío</a></h6>
-        <h6><a href="#">Condiciones de devolucion</a></h6>
-        <h6><a href="#">Garantías</a></h6>
+        <h6>Condiciones de envío</h6>
+        <h6>Condiciones de devolucion</h6>
+        <h6>Garantías</h6>
       </div>
       <div class="col-12 col-md-4 col-lg-4">
         <h5>Políticas de privacidad </h5>
-        <h6><a href="#">Política de privacidad</a> </h6>
-        <h6><a href="#">Aviso Legal</a> </h6>
-        <h6><a href="#">Condiciones generales de uso</a> </h6>
+        <h6>Política de privacidad </h6>
+        <h6>Aviso Legal </h6>
+        <h6>Condiciones generales de uso </h6>
       </div>
     </div>
   </div>

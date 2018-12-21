@@ -15,20 +15,34 @@ class UserController extends Controller
     public function editarPerfil(Request $request){
 
       $this->validate( $request, [
-        'fullname' => 'required', 'string', 'min:5', 'max:50',
-        'nick' => 'required', 'string', 'max:16', 'min:5',
-        'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
-        'password' => 'required', 'string', 'min:6', 'confirmed',
+        'fullname' => 'required|regex:/^[a-zA-Z\s]*$/|min:5|string|max:50',
+        'nick' => 'required|max:16|min:5|string',
+        'email'=> 'email|unique:users|nullable',
         'image' => 'image',
         'platform' => 'required', 'string',
         'country' => 'required', 'string',
         'province' => 'string',
         ],
       [
-        'name.required' => 'Debe ingresar un titulo.',
-        'name.string' => 'Valores ingresados no aceptados.',
-        'name.unique' => 'Juego ya registrado.',
-        'name.min' => 'El titulo debe tener mas de 2 caracteres.',
+        'fullname.required' => 'Debe ingresar un nombre',
+        'fullname.regex' => 'El nombre no puede tener numeros o caracteres especiales',
+        'fullname.min' => 'El nombre tiene que ser mayor a 5',
+        'fullname.min' => 'El nombre tiene que ser menor a 50',
+        
+        'nick.required' => 'Debe ingresar un nick',
+        'nick.max' => 'El nombre tiene que ser menor a 16',
+        'nick.min' => 'El nombre tiene que ser mayor a 5',
+
+        'email.required' => 'Debe ingresar un email',
+        'email.unique' => 'Email ya registrado.',
+        'email.max' => 'El email debe tener menos de 255 caracteres.',
+        'email.email' => 'Debe ingresar un formato valido de email',
+
+        'image.image' => 'La imagen tiene que ser (jpeg, png, bmp, gif, or svg)',
+        
+        'platform.required' => 'Debe seleccionar una plataforma',
+        'country.required' => 'Debe seleccionar un pais',
+        
       ]);
 
       $user = Auth::user();
@@ -41,8 +55,7 @@ class UserController extends Controller
       $user->update([
         'fullname' => $request->input('fullname'),
         'nick' => $request->input('nick'),
-        'email' => $request->input('email'),
-        'password' => Hash::make($request->input('password')),
+        'email'=>$request->input('email'),
         'image' => $path??null,
         'platform' => $request->input('platform'),
         'country' => $request->input('country'),
