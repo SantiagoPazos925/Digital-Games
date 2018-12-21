@@ -14,7 +14,9 @@ class GameController extends Controller
      */
     public function index()
     {
-
+      if (\Auth::user()->email !='admin@admin.com'){
+          return redirect('/');
+      }
         return view('subirJuego');
     }
 
@@ -62,8 +64,8 @@ class GameController extends Controller
                 'image.required' => 'Debe subir una portada',
                 'image.mimes' => 'Formato de imagen inválida',
 
-                'genre.required' => 'Debe seleccionar un genero', 
-                'platform.required' => 'Debe seleccionar una plataforma',  
+                'genre.required' => 'Debe seleccionar un genero',
+                'platform.required' => 'Debe seleccionar una plataforma',
               ]);
                 if ($request->file('image')) {
                   $folder = 'public/juegos';
@@ -143,20 +145,35 @@ class GameController extends Controller
 
 
         $this->validate( $request, [
-            'price' => 'required', 'numeric',
-            'stock' => 'required', 'numeric',
-            'name' => 'unique:games', 'string', 'min:2',
-            'release_date' => 'required',
-            'image' => 'required', 'mimes:jpeg,png,jpg,gif',
+            'price' => 'required|numeric',
+            'stock' => 'required|numeric',
+            'name' => 'unique:games|string|min:2',
+            'release_date|required',
+            'image' => 'required|mimes:jpeg,png,jpg,gif',
             'genre' => 'required',
             'platform' => 'required',
           ],
-        [
-          'name.required' => 'Debe ingresar un titulo.',
-          'name.string' => 'Valores ingresados no aceptados.',
-          'name.unique' => 'Juego ya registrado.',
-          'name.min' => 'El titulo debe tener mas de 2 caracteres.',
-        ]);
+          [
+            'name.required' => 'Debe ingresar un titulo.',
+            'name.string' => 'Valores ingresados no aceptados.',
+            'name.unique' => 'Juego ya registrado.',
+            'name.min' => 'El titulo debe tener mas de 2 caracteres.',
+
+            'price.required' => 'Debe ingresar un precio.',
+            'price.numeric' => 'Tiene que ingresar un numero',
+
+            'stock.required' => 'Debe ingresar un precio.',
+            'stock.numeric' => 'Tiene que ingresar un numero',
+
+            'release_date.required' => 'Debe ingresar una fecha',
+            'release_date.date' => 'Debe ingresar un formato fecha',
+
+            'image.required' => 'Debe subir una portada',
+            'image.mimes' => 'Formato de imagen inválida',
+
+            'genre.required' => 'Debe seleccionar un genero',
+            'platform.required' => 'Debe seleccionar una plataforma',
+          ]);
 
         if ($request->file('image')) {
           $folder = 'public/juegos';
@@ -188,5 +205,5 @@ class GameController extends Controller
     {
         //
     }
-    
+
 }

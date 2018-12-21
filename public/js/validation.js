@@ -20,33 +20,33 @@ function validateLogin(){
 }
 
 function revisar(elemento){
-  
-  
+
+
   if (elemento.value == '')
-  {     
+  {
       elemento.className = "inputError";
-      
+
   }
   else
-  { 
+  {
     elemento.className = 'input';
   }
 
   }
-  
+
 
 
   function revisarSoloLetras(elemento){
-    
+
     if (elemento.value !== '') {
       var data = elemento.value;
       let regex = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;
       if(!regex.test(data)){
         elemento.className='inputError';
-        
+
       }else {
         elemento.className='input';
-        
+
       }
     }
 
@@ -54,16 +54,16 @@ function revisar(elemento){
   }
   function revisarLongitud(elemento, min)
   {
-    
+
     if (elemento.value !== ''){
       var data = elemento.value;
       if(data.length < min){
         elemento.className='inputError';
-        
+
       }
       else{
         elemento.className='input';
-        
+
       }
     }
   }
@@ -91,7 +91,7 @@ function revisar(elemento){
 
 
   }
-  
+
 
 
 
@@ -112,7 +112,7 @@ function revisar(elemento){
         elemento.className='inputError';
       }else{
         elemento.className='input';
-        
+
       }
   }
   function validarUpdatePerfil(){
@@ -124,7 +124,7 @@ function revisar(elemento){
     var platform = document.getElementById("platform");
     console.log(country.value);
     var datosCorrectos = true;
-    
+
     if (fullname.value == "" || fullname.length < min || !soloLetras.test(fullname.value) ) {
         datosCorrectos = false;
     }
@@ -133,11 +133,11 @@ function revisar(elemento){
     }
     if (country.value == "")  {
       datosCorrectos = false;
-    } 
+    }
     if (platform.value == "")  {
       datosCorrectos = false;
     }
-    
+
 
     if (!datosCorrectos) {
       var errorForm = document.getElementById("errorForm");
@@ -145,9 +145,14 @@ function revisar(elemento){
     }
     return datosCorrectos;
   }
+
+
+
+
+
   function validar(){
 
-    
+
     var min = 5;
     var fullname = document.getElementById("fullname");
     var nick = document.getElementById("nick");
@@ -158,7 +163,7 @@ function revisar(elemento){
     var datosCorrectos = true;
     let soloLetras = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;
     var emailCorrecto = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    
+
     if (fullname.value == "" || fullname.length < min || !soloLetras.test(fullname.value) ) {
         datosCorrectos = false;
         fullname.className = 'inputError';
@@ -167,43 +172,60 @@ function revisar(elemento){
         datosCorrectos = false;
         nick.className = 'inputError';
     }
-    
+
     if (email.value == ''|| (!emailCorrecto.test(email.value))){
         datosCorrectos = false;
         email.className = 'inputError';
-      
+
     }
-    
+
     if (country.value == ''){
       datosCorrectos = false;
       country.className = 'inputError';
-    
+
     }
     if (platform.value == ''){
       datosCorrectos = false;
       platform.className = 'inputError';
-    
+
     }
     if (password.value == ''){
       datosCorrectos = false;
       password.className = 'inputError';
-    
+
     }
     if (password2.value == '' || password2.value !== password.value ){
       datosCorrectos = false;
       password2.className = 'inputError';
-    
+
     }
 
-  
-       
-    
+
+
+
 
     if (!datosCorrectos) {
       var errorForm = document.getElementById("errorForm");
       errorForm.innerText='Hay errores en el formulario';
     }
     return datosCorrectos;
+  }
+  function validarUpdateJuego(){
+      var name = document.getElementById("name");
+      var datosCorrectos = true;
+
+      if (name.value == "" || name.value.length < min ) {
+        datosCorrectos = false;
+        name.className = 'inputError';
+      }
+
+      if (!datosCorrectos) {
+        var errorForm = document.getElementById("errorForm");
+        errorForm.innerText='Hay errores en el formulario';
+
+      }
+      return datosCorrectos;
+
   }
   function validarJuego(){
     var regExp = /[0-9]/;
@@ -226,7 +248,7 @@ function revisar(elemento){
     }
     if(price.value == "" || (!regExp.test(price.value))) {
       datosCorrectos = false;
-      stock.className = 'inputError';
+      price.className = 'inputError';
     }
     if (release_date.value == "" || revisaFecha(release_date.value)) {
       datosCorrectos = false;
@@ -239,12 +261,12 @@ function revisar(elemento){
     if (platform.value =="") {
       datosCorrectos = false;
       platform.className = 'inputError';
-    } 
-    
+    }
+
     if (!datosCorrectos) {
       var errorForm = document.getElementById("errorForm");
       errorForm.innerText='Hay errores en el formulario';
-      
+
     }
     return datosCorrectos;
   }

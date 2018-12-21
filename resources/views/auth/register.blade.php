@@ -90,7 +90,7 @@
                 <span style="color:red;">*</span>
               </div>
           </div>
-         
+
         <div>
         @if ($errors->has('province'))
             <span>

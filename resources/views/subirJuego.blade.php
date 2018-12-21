@@ -3,13 +3,7 @@
 
   <title>Sube tu juego!</title>
   </head>
-        @auth
-            <?php if (Auth::user()->email !='admin@admin.com'){
-                return redirect('/subirJuego');
-            }
-            ?>
-
-        @endauth
+        
     <div class="registrate">
       <h2>Sube tu juego!</h2>
     </div>
@@ -29,7 +23,7 @@
           @endif
         </div>
 
-          <input id="price" class="input"  type="number" name="price" value="{{ old('price') }}" placeholder="Precio" onblur="revisar(this);revisaNum(this)"onkeyup="revisar(this);revisaNum(this)" ><br>
+          <input id="price" class="input"  type="number" name="price" value="" placeholder="Precio" onblur="revisar(this);revisaNum(this)"onkeyup="revisar(this);revisaNum(this)" ><br>
           <div>
           @if ($errors->has('price'))
               <span>
@@ -62,8 +56,8 @@
               </span>
           @endif
         </div>
-          
-            
+
+
             <select id="platform" class="input" style="max-width:295px"name="platform" onblur="revisar(this)">
               <option value="">Seleccione su plataforma</option>
               <option value="PC">PC</option>
@@ -78,10 +72,10 @@
                 </span>
             @endif
           </div>
-          
+
 
           <div class="">
-            
+
             <select id="genre"class="input" name="genre" onblur="revisar(this)">
               <option value="">Seleccione un genero</option>
               <option value="Accion">Accion</option>
