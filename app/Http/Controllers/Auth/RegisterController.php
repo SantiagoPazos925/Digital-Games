@@ -49,15 +49,33 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'fullname' => ['required', 'string', 'min:5', 'max:50'],
+            'fullname' => 'required|regex:/^[a-zA-Z\s]*$/|string|min:5|max:50',
             'nick' => ['required', 'string', 'max:16', 'min:5'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'image' => ['image'],
+            'image' => ['mimes:jpeg,bmp,png,jpg,gif'],
             'platform' => ['required', 'string'],
             'country' => ['required', 'string'],
             'province' => ['string'],
-        ]);
+        ],[
+            'fullname.required' => 'Debe ingresar un titulo.',
+            'fullname.regex' => 'Solo debe incluir letras.',
+            'fullname.min' => 'El nombre debe tener al menos 5 caracteres.',
+            'fullname.max' => 'El nombre debe tener como maximo 50 caracteres.',
+            'nick.required' => 'Debe ingresar un nick.',
+            'nick.min' => 'El nick debe tener al menos 5 caracteres.',
+            'nick.max' => 'El nick debe tener como maximo 16 caracteres.',
+            'email.required' => 'Debe ingresar un email.',
+            'email.email' => 'Tiene que ingresar un email valido',
+            'email.unique' => 'El email ingresado ya esta en uso.',
+            'password.required' => 'Debe ingresar una contraseña.',
+            'password.min' => 'Debe ingresar al menos 6 caracteres.',
+            'password.confirmed' => 'Las contraseñas deben coincidir.',
+            'image.mimes' => 'Formato de imagen inválida',
+            'platform.required' => 'Debe seleccionar una plataforma',
+            'country.required' => 'Debe seleccionar un pais',
+              
+          ]);
     }
 
     /**
@@ -70,7 +88,7 @@ class RegisterController extends Controller
     {
       if (isset($data['image'])) {
         $folder = 'public/avatars';
-        $path = $data['image']->storePubliclyAs( $folder, $data['nick'] );
+        $path = $data['image']->storePubliclyAs( $folder, $data['email'] );
       }
       return User::create([
           'fullname' => $data['fullname'],

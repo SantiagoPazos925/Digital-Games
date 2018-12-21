@@ -37,10 +37,10 @@ class GameController extends Controller
 
                 $this->validate( $request, [
                     'name' => 'required|unique:games|string|min:2',
-                    'price' => 'required', 'numeral',
-                    'stock' => 'required', 'numeral',
+                    'price' => 'required|numeric',
+                    'stock' => 'required|numeric',
                     'release_date' => 'required|date',
-                    'image' => 'required', 'mimes:jpeg,png,jpg,gif',
+                    'image' => 'required|mimes:jpeg,png,jpg,gif',
                     'genre' => 'required',
                     'platform' => 'required',
                 ],
@@ -51,10 +51,10 @@ class GameController extends Controller
                 'name.min' => 'El titulo debe tener mas de 2 caracteres.',
 
                 'price.required' => 'Debe ingresar un precio.',
-                'price.numeral' => 'Tiene que ingresar un numero',
+                'price.numeric' => 'Tiene que ingresar un numero',
 
                 'stock.required' => 'Debe ingresar un precio.',
-                'stock.numeral' => 'Tiene que ingresar un numero',
+                'stock.numeric' => 'Tiene que ingresar un numero',
 
                 'release_date.required' => 'Debe ingresar una fecha',
                 'release_date.date' => 'Debe ingresar un formato fecha',
@@ -143,8 +143,8 @@ class GameController extends Controller
 
 
         $this->validate( $request, [
-            'price' => 'required', 'numeral',
-            'stock' => 'required', 'numeral',
+            'price' => 'required', 'numeric',
+            'stock' => 'required', 'numeric',
             'name' => 'unique:games', 'string', 'min:2',
             'release_date' => 'required',
             'image' => 'required', 'mimes:jpeg,png,jpg,gif',
@@ -188,4 +188,5 @@ class GameController extends Controller
     {
         //
     }
+    
 }

@@ -72,7 +72,10 @@
                 </div>
               </div>
             <?php endforeach; ?>
-            {{$games->links()}}
+            <div class="col-12">
+
+              {{$games->links()}}
+            </div>
           </div>
         </div>
       </div>

@@ -49,3 +49,5 @@ Route::get('{id}','GameController@show')->name('juego');
 //Route::post('/delete','AdminController@delete');
 //Route::post('/update','AdminController@update');
 //Route::post('/insert','InsertController@insert');
+
+

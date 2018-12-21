@@ -7,8 +7,11 @@
     </div>
     <div class="col-12 col-md-10 offset-md-1 ">
       <div class="contenedor-fluid py-5" id="contenedorForm">
-        <form class="login" action="" method="post" enctype="multipart/form-data" name="" onsubmit="return validar()">
+        <form class="login" action="" method="post" enctype="multipart/form-data" name="" onsubmit="return validarUpdatePerfil()">
           @csrf
+          <span >
+              <strong id="errorForm"style="color:red"></strong>
+          </span><br>
           <input id="fullname" class=" input"  type="text" name="fullname" value="{{ old('fullname', Auth::user()->fullname) }}" placeholder="Nombre Completo" onblur="revisar(this);revisarLongitud(this, 5); revisarSoloLetras(this)" onkeyup="revisar(this); revisarSoloLetras(this); revisarLongitud(this, 5) "><br>
           <div>
           @if ($errors->has('fullname'))
@@ -25,7 +28,6 @@
               </span>
           @endif
         </div>
-          <input id="email"class=" input" type="email" name="email" value="" placeholder="Email" onblur="revisaEmail(this)" onkeyup=" revisaEmail(this)"><br>
           <div>
           @if ($errors->has('email'))
               <span>
@@ -35,7 +37,7 @@
         </div>
           <div class="userData ">
               <div class="inputUserData">
-              <select class="col-10 col-sm-8 offet-sm-2 col-md-6 col-lg-4 col-xl-3 input" name="country" id="paises" value="{{ old('country') }}" >
+              <select class="col-10 col-sm-8 offet-sm-2 col-md-6 col-lg-4 col-xl-3 input" name="country" id="paises" value="" >
               </select>
               <div class="" id="provincias">
               </div>
@@ -112,7 +114,7 @@
           @endif
         </div>
      
-           <select id="plataforma" class="input " name="platform" value = "{{ old('platform') }}" onblur="revisar(this)">
+           <select id="platform" class="input " name="platform" value = "{{ old('platform') }}" onblur="revisar(this)">
             <option value="">Seleccione plataforma</option>
             <option
             @if (Auth::user()->platform == 'ps4')
@@ -137,11 +139,11 @@
           
             <div class="col-12 col-md-6 offset-md-3">
                 <div class="row">
-                <div class="col-6">
-                    <button ><a style="font-size:25px"href="profile" class="">Volver</a></button>
+                <div class="col-6 col-lg-3 offset-lg-2">
+                    <a style="font-size:20px;border:2px solid black"href="profile" class="btn btn-danger" >Volver</a>
                 </div>
-                <div class="col-6 ">
-                    <button type="submit" style="font-size:25px"name="" value="" class=" ">Guardar</button>
+                <div class="col-6 col-lg-3 offset-lg-2">
+                    <button type="submit" style="font-size:20px;border:2px solid black"name="" value="" class="btn btn-danger" >Guardar</button>
                   </div>
             </div>
            

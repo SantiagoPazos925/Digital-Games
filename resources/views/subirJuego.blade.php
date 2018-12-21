@@ -17,6 +17,9 @@
       <div class="contenedor-fluid" id="contenedorForm">
         <form class="login" action="subirJuego" method="post" enctype="multipart/form-data" name="register" onsubmit="return validarJuego()">
           @csrf
+          <span>
+                <strong id="errorForm"style="color:red"></strong><br>
+            </span>
           <input id="name" class="input"  type="text" name="name" value="{{ old('name') }}" placeholder="Titulo" onblur="revisar(this); revisarLongitud(this,2)" onkeyup="revisar(this)" ><br>
           <div>
           @if ($errors->has('name'))
@@ -61,7 +64,7 @@
         </div>
           
             
-            <select class="input" style="max-width:295px"name="platform" onblur="revisar(this)">
+            <select id="platform" class="input" style="max-width:295px"name="platform" onblur="revisar(this)">
               <option value="">Seleccione su plataforma</option>
               <option value="PC">PC</option>
               <option value="Playstation 4">Playstation 4</option>
@@ -79,7 +82,7 @@
 
           <div class="">
             
-            <select class="input" name="genre" onblur="revisar(this)">
+            <select id="genre"class="input" name="genre" onblur="revisar(this)">
               <option value="">Seleccione un genero</option>
               <option value="Accion">Accion</option>
               <option value="Aventura">Aventura</option>

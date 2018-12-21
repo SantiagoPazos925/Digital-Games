@@ -18,7 +18,7 @@
               if ($user->image == '/proyecto/Proyecto/TpFinal/images/profile.png') {
                 echo '/proyecto/Proyecto/TpFinal/images/profile.png';
               } else {
-                echo '/storage/avatars/'. $user->nick .'';
+                echo '/storage/avatars/'. $user->email .'';
               }
 
 

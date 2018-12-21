@@ -19,8 +19,8 @@ class UserController extends Controller
         'nick' => 'required|max:16|min:5|string',
         'email'=> 'email|unique:users|nullable',
         'image' => 'image',
-        'platform' => 'required', 'string',
-        'country' => 'required', 'string',
+        'platform' => 'required|string',
+        'country' => 'required|string',
         'province' => 'string',
         ],
       [
@@ -49,14 +49,18 @@ class UserController extends Controller
 
       if ($request->file('image')) {
         $folder = 'public/avatars';
-        $path = $request->file('image')->storePubliclyAs( $folder, $request->input('nick') );
+        $path = $request->file('image')->storePubliclyAs( $folder, $user->email );
+      }else{
+        $path = 'public/avatars/'.$user->email;
       }
-
+      
+      
+      
       $user->update([
         'fullname' => $request->input('fullname'),
         'nick' => $request->input('nick'),
-        'email'=>$request->input('email'),
-        'image' => $path??null,
+        
+        'image' => $path,
         'platform' => $request->input('platform'),
         'country' => $request->input('country'),
         'province' => $request->input('province'),

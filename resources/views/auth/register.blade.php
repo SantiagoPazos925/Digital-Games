@@ -7,13 +7,16 @@
     </div>
     <div class="col-12 col-md-10 offset-md-1 ">
       <div class="contenedor-fluid py-5" id="contenedorForm">
-        <form class="login" action="register" method="post" enctype="multipart/form-data" name="register" onsubmit="">
+        <form class="login" action="register" method="post" enctype="multipart/form-data" name="register" onsubmit="return validar()">
           @csrf
+          <span>
+              <strong id="errorForm" style="color:red"></strong>
+          </span><br>
           <input id="fullname" class=" input"  type="text" name="fullname" value="{{ old('fullname') }}" placeholder="Nombre Completo" onblur="revisar(this);revisarLongitud(this, 5); revisarSoloLetras(this)" onkeyup="revisar(this); revisarSoloLetras(this); revisarLongitud(this, 5) "><br>
           <div>
           @if ($errors->has('fullname'))
               <span>
-                  <strong>{{ $errors->first('fullname') }}</strong>
+                  <strong style="color:red">{{ $errors->first('fullname') }}</strong>
               </span>
           @endif
         </div>
@@ -21,21 +24,21 @@
           <div>
           @if ($errors->has('nick'))
               <span>
-                  <strong>{{ $errors->first('nick') }}</strong>
+                  <strong style="color:red">{{ $errors->first('nick') }}</strong>
               </span>
           @endif
         </div>
-          <input id="email"class=" input" type="email" name="email" value="{{ old('email') }}" placeholder="Email" onblur="revisar(this):revisaEmail(this)" onkeyup="revisar(this) ; revisaEmail(this)"><br>
+          <input id="email"class=" input" type="email" name="email" value="{{ old('email') }}" placeholder="Email" onblur="revisar(this);revisaEmail(this)" onkeyup="revisar(this) ; revisaEmail(this)"><br>
           <div>
           @if ($errors->has('email'))
               <span>
-                  <strong>{{ $errors->first('email') }}</strong>
+                  <strong style="color:red">{{ $errors->first('email') }}</strong>
               </span>
           @endif
         </div>
           <div class="userData ">
               <div class="inputUserData">
-              <select class="col-10 col-sm-8 offet-sm-2 col-md-6 col-lg-4 col-xl-3 input" name="country" id="paises" value="{{ old('country') }}">
+              <select class="col-10 col-sm-8 offet-sm-2 col-md-6 col-lg-4 col-xl-3 input" style="max-width:292px" name="country" id="paises" value=""  onblur="revisar(this)">
               </select>
               <div class="" id="provincias">
               </div>
@@ -46,7 +49,7 @@
                   })
                   .then(function(r){
                     var paises = document.getElementById("paises");
-                    paises.innerHTML += '<option value="">Seleccione su país</option>';
+                    paises.innerHTML += '<option value="" selected disabled>Seleccione su país</option>';
                     for (pais of r) {
                         var cod = '<option value="' + pais.name + '">' + pais.name + '</option>';
                         paises.innerHTML += cod;
@@ -87,17 +90,11 @@
                 <span style="color:red;">*</span>
               </div>
           </div>
-          <div>
-          @if ($errors->has('country'))
-              <span>
-                  <strong>{{ $errors->first('country') }}</strong>
-              </span>
-          @endif
-        </div>
+         
         <div>
         @if ($errors->has('province'))
             <span>
-                <strong>{{ $errors->first('province') }}</strong>
+                <strong style="color:red">{{ $errors->first('province') }}</strong>
             </span>
         @endif
       </div>
@@ -107,7 +104,7 @@
           <div>
           @if ($errors->has('image'))
               <span>
-                  <strong>{{ $errors->first('image') }}</strong>
+                  <strong style="color:red">{{ $errors->first('image') }}</strong>
               </span>
           @endif
         </div>
@@ -115,13 +112,13 @@
           <div>
           @if ($errors->has('password'))
               <span>
-                  <strong>{{ $errors->first('password') }}</strong>
+                  <strong style="color:red">{{ $errors->first('password') }}</strong>
               </span>
           @endif
         </div>
           <input  id="password2" class="input" type="password" name="password_confirmation" value=""placeholder="Repita su contraseña" onblur="revisar(this);revisaPassword(this); revisarLongitud(this, 6)" onkeyup="revisar(this) revisarLongitud(this, 6)"></label><br>
-           <select id="plataforma" class="input " name="platform" value = "{{ old('platform') }}"onblur="revisar(this)">
-            <option value="">Seleccione plataforma</option>
+           <select id="platform" class="input " name="platform" value = ""onblur="revisar(this)">
+            <option value="" selected disabled>Seleccione plataforma</option>
             <option value="ps4">PlayStation 4</option>
             <option value="xbox">Xbox One</option>
             <option value="pc">PC</option>
@@ -129,7 +126,7 @@
           <div>
           @if ($errors->has('platform'))
               <span>
-                  <strong>{{ $errors->first('platform') }}</strong>
+                  <strong style="color:red">{{ $errors->first('platform') }}</strong>
               </span>
           @endif
         </div>
